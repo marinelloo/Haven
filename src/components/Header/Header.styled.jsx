@@ -40,4 +40,9 @@ export const HeaderStyled = styled.div`
     padding: 25px 15px;
     transition: all 0.3s;
   }
+  
+  a {
+    text-decoration: none;
+    color: white;
+  }
 `

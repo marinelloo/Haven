@@ -2,6 +2,7 @@ import React from 'react';
 import Hands from '../../assets/images/Hands.png';
 import {BannerStyled} from "./Banner.styled";
 import Button from "../ui/Button";
+import {Link} from "react-router-dom";
 
 const Banner = () => {
     return (
@@ -16,7 +17,9 @@ const Banner = () => {
                 </div>
                 <div className="banner-buttons">
                     <div>
-                        <Button>Match with doctor</Button>
+                        <Link to="/doctors">
+                            <Button>Match with doctor</Button>
+                        </Link>
                     </div>
                     <div>
                         <Button>Discover More</Button>

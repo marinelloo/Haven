@@ -1,12 +1,16 @@
 import React from 'react';
-import MainLayout from "./Layout/MainLayout";
 import Home from "./Scenes/Home/Home";
+import RootRoute from "./Routes/RootRoute";
+import {BrowserRouter} from "react-router-dom";
 
 const App = () => {
     return (
-        <MainLayout>
-            <Home/>
-        </MainLayout>
+        <>
+            <BrowserRouter>
+                <RootRoute/>
+            </BrowserRouter>
+        </>
+
     );
 };
 

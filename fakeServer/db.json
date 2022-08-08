@@ -1,0 +1,525 @@
+{
+  "doctors": [
+      {
+        "id":"1",
+        "job":"Counsellor",
+        "email":"chris.troussa@haven.com",
+        "title":"Ms.",
+        "gender":"female",
+        "rating":4.3,
+        "license":[
+          "Registration No. MMC 2009093394, Medical Council of India 09/33958",
+          "2006113358 Maharashtra Medical Council, 2006"
+        ],
+        "language":[
+          "Hindi",
+          "English",
+          "Telugu"
+        ],
+        "lastName":"Troussa",
+        "firstName":"Christiana",
+        "profileURL":"https://randomuser.me/api/portraits/women/1.jpg",
+        "profileDesc":"Anxiety, depression, low self-esteem, insecurity, fear, existential issues living in a world full of demands, these are all topics that each of us can face in life sometimes and that's why I'm here to help you. Welcome to my profile! I'm an experienced integrative-holistic counsellor, and my professional path begins 23 years ago. Since then, I've been involved in the field of private education as a foreign language coach, didactic supervisor and school counsellor. I’ve also collaborated with TV channels promoting the importance of Art Therapy, as well as published different articles focused on counselling. I'm based in Italy and due to my origins I often do voluntary work for the Greek/Italian Community in my city. Except of my Master's degree in clinical psychology, my HND in counselling and other professional qualifications, as proof of my love for art, I also hold a Bachelor's degree in drama techniques, and for a few years now I've been also leading a workshop of dramatic experimentation based on the psycho-cathartic qualities of classic Greek theatre (Comedy and Tragedy). Nevertheless, these few last years I decided to give my life a serious twist and focus more on online counselling, convinced that the future of therapy lies in the digital world, and therefore I focused more on individual therapy, gaining more experience as an EAP therapist.In my sessions I use different tools, methods and techniques according to the case of each consultant. Behind psychological discomfort can be a thousand blockages, not only emotional but also somatic, energetic, and sometimes spiritual, that's why I see and treat every individual in terms of mind, body and spirit as a unique whole. I firmly believe that the most important keys to wellness are willingness and an authentic therapeutic relationship, so as a therapist I think that I'm characterized by honesty, empathy and a strong sense of helping others. I'm a Register BACP Member, an IPHM accredited Mindfulness Educator, a certified Bioenergetic Analyst, a Trainer Counsellor registered with the holistic counselling centre of Rome Erba Sacra and a full accredited Acting Coach.",
+        "communication":[
+          {
+            "cost":600,
+            "mode":"Audio",
+            "currency":"USD"
+          },
+          {
+            "cost":800,
+            "mode":"Video",
+            "currency":"USD"
+          },
+          {
+            "cost":300,
+            "mode":"Chat",
+            "currency":"USD"
+          }
+        ],
+        "conversations":946,
+        "specialisation":[
+          "Anger Management",
+          "Depression",
+          "Domestic Violence"
+        ]
+      },
+      {
+        "id":"2",
+        "job":"Counsellor",
+        "email":"joanne.walker@haven.com",
+        "title":"Ms.",
+        "gender":"female",
+        "rating":4.4,
+        "license":[
+          "(NCS) National Counselling Society"
+        ],
+        "language":[
+          "English"
+        ],
+        "lastName":"Walker",
+        "firstName":"Joanne",
+        "profileURL":"https://randomuser.me/api/portraits/women/2.jpg",
+        "profileDesc":"Hi and welcome to my profile. Whatever's on your mind and whatever it is you're going through, can benefit from spending some time in a therapeutic relationship. I'm a Graduate Integrative Counsellor and Psychotherapist, working in Brighton and Hove. I have past experience in mental health, general practice and domestic abuse settings. I don't diagnose you or tell you what to do. Instead I support you in a non-judgemental and empathic way, offering psychologically informed reflections. I have a National Open College Network Counselling Skills Certificate, (2010) and a BA (Hons) Counselling Studies Degree, (2013). I'm an Accredited Registrant member of The National Counselling Society. My training included a range of approaches including: Humanistic, CBT, Psychodynamic, Gestalt, TA and Person-centred. This means that I can tailor my way of working around whatever it is you need to bring. I have a collaborative therapeutic style. We can work through your past whilst also looking at the present. Some helpful interventions can be providing healthy coping mechanisms, positive reframing and managing aims, goals and future expectations. I place equal value on the provision of a safe and understanding space, where you will be both seen and heard. Post qualification courses include focusing on: child sexual abuse, emotional abuse, recovering from narcissistic abuse, domestic violence and trauma, self-worth, intrusive thoughts and Imposter Syndrome. Some issues regularly raised in practice are: depression, anxiety, grief and loss, trauma, abuse and difficulties with relationships. This list is not exhaustive and anything that is causing you distress is worthy of attention, so please don't hesitate to get in touch.",
+        "communication":[
+          {
+            "cost":100,
+            "mode":"Audio",
+            "currency":"USD"
+          },
+          {
+            "cost":300,
+            "mode":"Video",
+            "currency":"USD"
+          },
+          {
+            "cost":150,
+            "mode":"Chat",
+            "currency":"USD"
+          }
+        ],
+        "conversations":15,
+        "specialisation":[
+          "Abuse",
+          "Anger",
+          "Anxiety / stress"
+        ]
+      },
+      {
+        "id":"3",
+        "job":"Clinical Psychotherapist",
+        "email":"tim.webbber@haven.com",
+        "title":"Mr.",
+        "gender":"male",
+        "rating":4.5,
+        "license":[
+          "(BACP) British Association for Counselling and Psychotherapy"
+        ],
+        "language":[
+          "English"
+        ],
+        "lastName":"Webber",
+        "firstName":"Tim",
+        "profileURL":"https://randomuser.me/api/portraits/men/1.jpg",
+        "profileDesc":"Hello, I’m Tim. I’m an integrative counsellor combining person-centred and psychodynamic approaches within a relational model. This means I adapt the therapy for every client, tailored to their individual needs. I’m passionate about mental wellbeing. We all have mental health and need to look after it, just like we do our physical health. Counselling is one such way of doing so, putting some time aside to concentrate on you and your needs. This kind of therapy provides a confidential, safe and non-judgmental space for you to reflect and explore your thoughts and feelings, address life challenges and improve your wellbeing. The counselling I provide is suitable for a wide range of common wellbeing issues, including but by no means limited to: anxiety and worry, stress, low mood, depression, lack of motivation, relationship, sexuality and family issues, loss, bereavement, workplace issues and transitions in life stage. If you’re not sure if counselling is for you, I will be happy to arrange to discuss this with you.",
+        "communication":[
+          {
+            "cost":274,
+            "mode":"Audio",
+            "currency":"USD"
+          },
+          {
+            "cost":600,
+            "mode":"Video",
+            "currency":"USD"
+          },
+          {
+            "cost":200,
+            "mode":"Chat",
+            "currency":"USD"
+          }
+        ],
+        "conversations":146,
+        "specialisation":[
+          "Anxiety / stress",
+          "Depression",
+          "Domestic Violence",
+          "Grief / loss"
+        ]
+      },
+      {
+        "id":"4",
+        "job":"Clinical Hypnotherapist",
+        "email":"anthony.walker@haven.com",
+        "title":"Mr.",
+        "gender":"male",
+        "rating":4.8,
+        "license":[
+          "(NCH) National Council for Hypnotherapy",
+          "(AP (PREVIOUSLY SMMGP/FDAP)) Addiction Professionals"
+        ],
+        "language":[
+          " English"
+        ],
+        "lastName":"Walker",
+        "firstName":"Anthony",
+        "profileURL":"https://randomuser.me/api/portraits/men/4.jpg",
+        "profileDesc":"If you are thinking about making some changes in your life, and if you feel you need a helping hand, I can help you find a way through. I know it's a cliché but you really have made the first step already. Take a few minutes to read a little more, and if you think I can help, just let me know. I have over 30 years experience within Addictions, Dependencies, and related fields, working with a wide variety of clients from diverse backgrounds and cultures. In addition to Alcohol and Drug problems, many of my clients have been seeking help for Anxiety and Stress, Relationship difficulties, Phobias, Confidence issues, Weight Reduction, and Smoking Cessation. I have developed and managed an integrated Hypnotherapy approach which includes aspects of Solution Focus and Motivational models, and elements of Cognitive Behavioural Therapy.",
+        "communication":[
+          {
+            "cost":200,
+            "mode":"Audio",
+            "currency":"USD"
+          },
+          {
+            "cost":300,
+            "mode":"Video",
+            "currency":"USD"
+          },
+          {
+            "cost":100,
+            "mode":"Chat",
+            "currency":"USD"
+          }
+        ],
+        "conversations":189,
+        "specialisation":[
+          "Abuse",
+          "Addiction",
+          "Anger",
+          "Anxiety / stress"
+        ]
+      },
+      {
+        "id":"5",
+        "job":"Psychotherapist",
+        "email":"david.baker@haven.com",
+        "title":"Mr.",
+        "gender":"male",
+        "rating":4.9,
+        "license":[
+          "(BACP) British Association for Counselling and Psychotherapy"
+        ],
+        "language":[
+          " English"
+        ],
+        "lastName":"Baker",
+        "firstName":"David",
+        "profileURL":"https://randomuser.me/api/portraits/men/5.jpg",
+        "profileDesc":"10 Years Experience. Hello and welcome to my profile. If you are reading this it may be that you (or someone you know) is currently experiencing some life issues that could benefit from being explored alongside a trained, caring, therapist in a confidential, safe, space. I understand that it sometimes takes courage to seek help and that there may be certain pre-conceived ideas about therapy/counselling and what it entails. Please rest assured that most therapy clients are just ordinary people like you and me, who are struggling with everyday issues. I believe that we all have the capacity for personal development and self-growth and that we also have the the ability to reduce emotional suffering and improve our relationships. Sometimes a non-judgemental, caring person may be necessary to help in that process.",
+        "communication":[
+          {
+            "cost":200,
+            "mode":"Audio",
+            "currency":"USD"
+          },
+          {
+            "cost":400,
+            "mode":"Video",
+            "currency":"USD"
+          },
+          {
+            "cost":100,
+            "mode":"Chat",
+            "currency":"USD"
+          }
+        ],
+        "conversations":356,
+        "specialisation":[
+          "Abuse",
+          "Addiction",
+          "Anger",
+          "Anxiety / stress",
+          "Depression",
+          "Dissociative disorders"
+        ]
+      },
+      {
+        "id":"6",
+        "job":"Psychotherapist",
+        "email":"jac.colligan@haven.com",
+        "title":"Ms.",
+        "gender":"female",
+        "rating":4.3,
+        "license":[
+          "(BACP) British Association for Counselling and Psychotherapy"
+        ],
+        "language":[
+          " English"
+        ],
+        "lastName":"Colligan",
+        "firstName":"Jacqueline",
+        "profileURL":"https://randomuser.me/api/portraits/women/6.jpg",
+        "profileDesc":"Whatever issues brought you here, welcome. I specialise in both complex and more general therapy. I have extensive experience of working with people from a range of backgrounds whose problems range from severe to more readily treatable. Whether or not you’ve seen a therapist before, you may be anxious about seeking help. Many clients I have worked with have expressed relief to be able to talk to someone who understands what they’re going through, doesn’t judge, and has the professional experience and expertise to help. My clients may not return as many end their therapy having achieved their goals and made positive changes with my support. Please note, I do not offer single session therapy or fortnightly sessions. A former Academic, Researcher and University Senior Lecturer ,educated to Masters Degree level, I combine academic rigour in all of my work, with a down to earth approach in the therapy room. I work with private individuals, couples and families. with people in business, education, entertainment, the music industry, sportsmen/women, finance, government, healthcare, legal and media. Also - home-based clients and homemakers. I understand the demands of a hectic and stressful lifestyle, strongly valuing discretion, privacy and confidentiality.",
+        "communication":[
+          {
+            "cost":300,
+            "mode":"Audio",
+            "currency":"USD"
+          },
+          {
+            "cost":400,
+            "mode":"Video",
+            "currency":"USD"
+          },
+          {
+            "cost":150,
+            "mode":"Chat",
+            "currency":"USD"
+          }
+        ],
+        "conversations":125,
+        "specialisation":[
+          "Relationships",
+          "Trauma",
+          "Addiction",
+          "Mood",
+          "Personality disorders",
+          "Obsessive compulsive disorders",
+          "Abuse",
+          "Depression",
+          "Identity",
+          "Grief / loss",
+          "Personal",
+          "Education",
+          "Work"
+        ]
+      },
+      {
+        "id":"7",
+        "job":"Psychotherapist",
+        "email":"hanni.john@haven.com",
+        "title":"Ms.",
+        "gender":"female",
+        "rating":4.2,
+        "license":[
+          "(BACP) British Association for Counselling and Psychotherapy"
+        ],
+        "language":[
+          " English"
+        ],
+        "lastName":"St.john",
+        "firstName":"Hanni",
+        "profileURL":"https://randomuser.me/api/portraits/women/7.jpg",
+        "profileDesc":"Experienced therapist with an international background, working in private practice with couples and individuals on Harley Street and in Cambridgeshire. My aim is to provide high quality individually tailored therapy to all of my clients. Some people want a therapist to be with them through current life events, others want to work through past life events, and some others just want one or two sessions to vent or seek clarity on a specific issue that's been niggling at them. I offer both long and short-term counselling to suit individual needs and welcome anyone to make initial contact with me. During my career, I have been fortunate to gain a wealth of experience supporting people of all ages and from various walks of life through depression, eating disorders, loss, relationship difficulties, domestic violence, sexual abuse, PTS/PTSD, self-harm, self-esteem issues and coping with major life changes. I have worked with clients through their suicidal periods and supported referrals to mental health teams, medical professionals and safeguarding teams on child protection issues.",
+        "communication":[
+          {
+            "cost":150,
+            "mode":"Audio",
+            "currency":"USD"
+          },
+          {
+            "cost":300,
+            "mode":"Video",
+            "currency":"USD"
+          },
+          {
+            "cost":100,
+            "mode":"Chat",
+            "currency":"USD"
+          }
+        ],
+        "conversations":98,
+        "specialisation":[
+          "Personality disorders",
+          "Anxiety / stress",
+          "Abuse",
+          "Anger",
+          "Work",
+          "Depression",
+          "Personal",
+          "Dissociative disorders",
+          "Grief / loss",
+          "Sexual difficulties",
+          "Identity",
+          "Mood",
+          "Schizophrenia / psychosis",
+          "Sleep concerns"
+        ]
+      },
+      {
+        "id":"8",
+        "job":"Counselling Psychotherapist",
+        "email":"steven.lau@haven.com",
+        "title":"Mr.",
+        "gender":"male",
+        "rating":4.1,
+        "license":[
+          "(FHT) Federation of Holistic Therapists"
+        ],
+        "language":[
+          " English"
+        ],
+        "lastName":"Lau",
+        "firstName":"Steven",
+        "profileURL":"https://randomuser.me/api/portraits/men/8.jpg",
+        "profileDesc":"Hello and thank you for visiting my profile. Always remember that you, as an individual matter (too), no matter what issues or challenges it is, that you are going through right now (or how lonely you are feeling right now). We're here (as therapists) to help. Background Insight: So, with the clients I've had the distinct honour of working with across the past 8 years, via Harley and beyond, I would happily make the following observations: Therapy does indeed produce results, but it is a very collaborative effort/project and it requires the following key values within each patient/client, these being: As a therapist, out jobs are two fold, 1) To support our patients/clients with their problems and 2) To support them in developing their own problem solving mechanisms/ability for life (i.e. to develop your own powers ;+) as it were) with No 2, being vastly more important than No 1 - Professor Jordan B Peterson.",
+        "communication":[
+          {
+            "cost":300,
+            "mode":"Audio",
+            "currency":"USD"
+          },
+          {
+            "cost":400,
+            "mode":"Video",
+            "currency":"USD"
+          },
+          {
+            "cost":150,
+            "mode":"Chat",
+            "currency":"USD"
+          }
+        ],
+        "conversations":125,
+        "specialisation":[
+          "Grief / loss",
+          "Identity",
+          "Personal",
+          "Relationships",
+          "Trauma",
+          "Work",
+          "Abuse",
+          "Anger",
+          "Sleep concerns"
+        ]
+      },
+      {
+        "id":"9",
+        "job":"Principal Psychotherapist",
+        "email":"andreas.lind@haven.com",
+        "title":"Mr.",
+        "gender":"male",
+        "rating":4.9,
+        "license":[
+          "(UKCP) UK Council for Psychotherapy"
+        ],
+        "language":[
+          "English",
+          "Swedish",
+          "Finnish"
+        ],
+        "lastName":"Lind",
+        "firstName":"Andreas",
+        "profileURL":"https://randomuser.me/api/portraits/men/9.jpg",
+        "profileDesc":"I am a psychotherapist accredited by the United Kingdom Council for Psychotherapy (UKCP). I am experienced at treating a wide range of emotional and psychological issues. Until 2021 I divided my time between private practice and the NHS as Principal Psychotherapist for a large NHS Trust. Now in full time private practice, I have extensive experience of assessing and treating people from a variety of backgrounds whose problems range from severe and complex to more easily treatable problems including: Self-esteem, personal development, depression, anxiety, addictions, self-harm, personality problems and family and relationship concerns.",
+        "communication":[
+          {
+            "cost":250,
+            "mode":"Audio",
+            "currency":"USD"
+          },
+          {
+            "cost":500,
+            "mode":"Video",
+            "currency":"USD"
+          },
+          {
+            "cost":200,
+            "mode":"Chat",
+            "currency":"USD"
+          }
+        ],
+        "conversations":528,
+        "specialisation":[
+          "Obsessive compulsive disorders",
+          "Mood",
+          "Identity",
+          "Health related issues (physical)",
+          "Grief / loss",
+          "Family",
+          "Eating",
+          "Dissociative disorders",
+          "Depression",
+          "Anxiety / stress",
+          "Anger",
+          "Abuse",
+          "Conduct disorders",
+          "Schizophrenia / psychosis",
+          "Education",
+          "Neurodevelopmental"
+        ]
+      },
+      {
+        "id":"10",
+        "job":"Psychotherapist And Hypnotherapist",
+        "email":"julie.ellison@haven.com",
+        "title":"Ms.",
+        "gender":"female",
+        "rating":4.2,
+        "license":[
+          "(NRHP) National Register of Hypnotherapists and Psychotherapists"
+        ],
+        "language":[
+          "English"
+        ],
+        "lastName":"Ellison",
+        "firstName":"Julie",
+        "profileURL":"https://randomuser.me/api/portraits/women/10.jpg",
+        "profileDesc":"Your mental health is much more than just a label or a diagnosis and therapy offers so much more than just talking. It can give you new understanding, new insights, a different perspective, clarity about a problem and the way forward. It can teach you skills to live your life better, teach you more healthy coping strategies or simply give you the space and time for self reflection and a place to find peace of mind. Our brains are unique to us. Just like our fingerprints and how we experience and make sense of the world is entirely subjective. This is why two people can experience similar events and have remarkably different reactions. It also explains how our reactions to similar events can change.",
+        "communication":[
+          {
+            "cost":150,
+            "mode":"Audio",
+            "currency":"USD"
+          },
+          {
+            "cost":300,
+            "mode":"Video",
+            "currency":"USD"
+          },
+          {
+            "cost":100,
+            "mode":"Chat",
+            "currency":"USD"
+          }
+        ],
+        "conversations":98,
+        "specialisation":[
+          "Education",
+          "Family",
+          "Grief / loss",
+          "Health related issues (physical)",
+          "Mood",
+          "Obsessive compulsive disorders",
+          "Personal",
+          "Personality disorders",
+          "Relationships",
+          "Schizophrenia / psychosis",
+          "Sleep concerns",
+          "Trauma",
+          "Work"
+        ]
+      },
+      {
+        "id":"11",
+        "job":"Counsellor",
+        "email":"lee.broadhead@haven.com",
+        "title":"Mr.",
+        "gender":"male",
+        "rating":3.9,
+        "license":[
+          "(UKCP) UK Council for Psychotherapy"
+        ],
+        "language":[
+          "English",
+          "Spanish"
+        ],
+        "lastName":"Broadhead",
+        "firstName":"Lee",
+        "profileURL":"https://randomuser.me/api/portraits/men/11.jpg",
+        "profileDesc":"In these challenging and uncertain times, it's never been so important so stay connected with each other for the good of our mental health. Enforced isolation could be causing many kinds of mental distress and making existing challenges or conditions more difficult to handle. During this period I am offering phone and online counselling. We can use your preferred software (Zoom, WhatsApp Video, Face time or Skype) and if you are uncomfortable with technology I can spend some time helping you get set up, maybe starting with a phone session. Enforced isolation could be worsening pre existing conditions and symptoms such as depression, loneliness and anxiety. Maybe your phobias and obsessive habits have become stronger. If you have already been diagnosed with generalised anxiety disorder maybe you cannot handle any more stress. Some relationships may come under pressure when spending 24 hours a day together.",
+        "communication":[
+          {
+            "cost":100,
+            "mode":"Audio",
+            "currency":"USD"
+          },
+          {
+            "cost":300,
+            "mode":"Video",
+            "currency":"USD"
+          },
+          {
+            "cost":50,
+            "mode":"Chat",
+            "currency":"USD"
+          }
+        ],
+        "conversations":56,
+        "specialisation":[
+          "Conduct disorders",
+          "Neurodevelopmental",
+          "Dissociative disorders",
+          "Identity",
+          "Mood",
+          "Obsessive compulsive disorders",
+          "Personal",
+          "Personality disorders",
+          "Somatic",
+          "Trauma",
+          "Work"
+        ]
+      }
+    ]
+}

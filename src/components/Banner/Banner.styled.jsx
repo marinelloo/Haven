@@ -5,7 +5,7 @@ export const BannerStyled = styled.div`
   color: white;
   display: flex;
   justify-content: space-around;
-  height: 400px;
+  height: 450px;
   .banner-buttons {
     display: flex;
     gap: 24px;

@@ -9,7 +9,7 @@ const StyledMainLayout = styled.div`
   
   .content {
     width: 100%;
-    height: calc(100vh - 180px);
+    height: fit-content;
     display: flex;
     flex-direction: column;
     overflow: hidden;
