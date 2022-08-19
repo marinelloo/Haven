@@ -1,16 +1,19 @@
 import React from 'react';
-import Home from "./Scenes/Home/Home";
 import RootRoute from "./Routes/RootRoute";
 import {BrowserRouter} from "react-router-dom";
+import {Provider} from "react-redux";
+import {store} from "./store/initStore";
+
 
 const App = () => {
     return (
         <>
-            <BrowserRouter>
-                <RootRoute/>
-            </BrowserRouter>
+            <Provider store={store}>
+                <BrowserRouter>
+                    <RootRoute/>
+                </BrowserRouter>
+            </Provider>
         </>
-
     );
 };
 

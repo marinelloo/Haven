@@ -1,18 +1,24 @@
 import React, {useEffect, useMemo, useState} from 'react';
 import Sorting from "../../components/Sorting/Sorting";
 import DoctorList from "../../components/DoctorList/DoctorList";
-import MainLayout from "../../Layout/MainLayout";
 import {fetchDoctorsList} from "../../api/doctorsApi";
-import SideBar from "../../components/SideBar/Filter";
-import SideLayout from "../../Layout/SideLayout";
-import Filter from "../../components/SideBar/Filter";
-import Input from "../../components/ui/Input";
+import Pagination from "../../components/Pagination/Pagination";
+import MainLayout from "../../Layout/MainLayout";
+import {DoctorsStyled} from "./Doctors.styled";
 import Search from "../../components/Search/Search";
+import SideBar from "../../components/SideBar/Filter";
+
 
 const Doctors = () => {
     const [selectedSort, setSelectedSort] = useState("");
+    const [selectedSpec, setSelectedSpec] = useState([]);
     const [doctors, setDoctors] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
+    const [totalPages, setTotalPages] = useState(0);
+    const [limit, setLimit] = useState(10);
+    const [page, setPage] = useState(1);
+
+
 
     const sortingOption = [
         {
@@ -29,25 +35,40 @@ const Doctors = () => {
         }
     ]
 
+
     useEffect(() => {
         async function fetchData() {
-            const res = await fetchDoctorsList();
-            setDoctors(res);
+            const res = await fetchDoctorsList(limit, page);
+            setDoctors(res.data);
+            const totalCount = res.headers['x-total-count'];
+            setTotalPages(Math.ceil(totalCount / limit));
+            console.log(totalPages)
         }
         fetchData();
-    }, []);
+    }, [page]);
 
 
     const sortedDoctors = useMemo(() => {
         if (selectedSort){
             return [...doctors].sort((a, b) => b[selectedSort] - a[selectedSort]);
-        } else {
+        }
+        if (selectedSpec.length) {
+            return [...doctors].filter((doctor) => doctor.lastName === selectedSpec)
+        }
+        else {
             return doctors;
         }
-    },[selectedSort, doctors]);
+    },[selectedSort, doctors, selectedSpec]);
+
+    // const filteredDoctors = useMemo(() => {
+    //     if (selectedSpec) {
+    //         console.log(doctors)
+    //         console.log([...doctors].filter((doctor) => doctor.language == "Swedish"))
+    //         return [...doctors].filter((doctor) => doctor.language === "Swedish")
+    //     }
+    // },[selectedSpec, doctors])
 
     const sortedAndSearchDoctors = useMemo(() => {
-        console.log(searchQuery)
         return sortedDoctors.filter(doctor => doctor.firstName.toLowerCase().includes(searchQuery))
     },[searchQuery,sortedDoctors])
 
@@ -55,18 +76,39 @@ const Doctors = () => {
         setSelectedSort(sort);
     };
 
-    return (
-        <SideLayout>
-            <input value={searchQuery} onChange={event => setSearchQuery(event.target.value)} placeholder="Search"/>
-            <Sorting value={selectedSort}
-                     onChange={sortDoctors}
-                     defaultValue="Sort By"
-                     options={sortingOption}/>
-            {
-                sortedAndSearchDoctors.length ? <DoctorList doctors = {sortedAndSearchDoctors}/> : <h2>Not Found</h2>
-            }
+    const changePage = (page) => {
+        setPage(page)
+    }
 
-        </SideLayout>
+    const filterBySpec = (selectedSpec, event) => {
+
+            setSelectedSpec(selectedSpec);
+
+    }
+
+
+    return (
+        <MainLayout>
+            <DoctorsStyled>
+                <div className="sidebar-wrapper">
+                    <div className="sidebar">
+                        <SideBar value={selectedSpec} onChange={filterBySpec}>
+                            <Search value={searchQuery} onChange={event => setSearchQuery(event.target.value)} placeholder="Search"/>
+                        </SideBar>
+                    </div>
+                    <div className="sidebar__content">
+                        <Sorting value={selectedSort}
+                                 onChange={sortDoctors}
+                                 defaultValue="Sort By"
+                                 options={sortingOption}/>
+                        {
+                            sortedAndSearchDoctors.length ? <DoctorList doctors = {sortedAndSearchDoctors}/> : <h2>Not Found</h2>
+                        }
+                        <Pagination page={page}  totalPages = {totalPages} changePage={changePage}/>
+                    </div>
+                </div>
+            </DoctorsStyled>
+        </MainLayout>
     );
 };
 

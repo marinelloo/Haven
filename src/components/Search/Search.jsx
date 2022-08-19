@@ -1,9 +1,9 @@
-import React from 'react';
-import Input from "../ui/Input";
+import React, {useState} from 'react';
+import {SearchStyled} from "./Search.styled";
 
-const Search = ({value, onChange, placeholder}) => {
+const Search = ({value,onChange, placeholder}) => {
     return (
-        <Input />
+        <SearchStyled value={value} onChange={onChange} placeholder={placeholder}/>
     );
 };
 

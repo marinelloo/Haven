@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const FilterStyled = styled.aside`
     grid-area: sidebar;
-    background-color: white;
+    background-color: #fafafa;
     padding: 20px;
     
     h3 {
@@ -38,5 +38,6 @@ export const FilterStyled = styled.aside`
     .sidebar__search {
       height: 24px;
       margin-bottom: 10px;
+      width: 100%;
     }
 `

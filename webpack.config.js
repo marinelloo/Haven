@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
+
 module.exports =  {
     mode: "development",
         devtool: "source-map",
@@ -32,6 +33,10 @@ module.exports =  {
                 use: ['babel-loader'],
             },
             {
+                test: /\.css$/i,
+                use: ["style-loader", "css-loader"],
+            },
+            {
                 test: /\.(png|jpg|gif)$/i,
                 use: {
                     loader: "url-loader",
@@ -52,7 +57,7 @@ module.exports =  {
                 options: {
                     name: "static/media/[name].[hash:8].[ext]"
                 }
-            }
+            },
         ]
     },
     resolve: {

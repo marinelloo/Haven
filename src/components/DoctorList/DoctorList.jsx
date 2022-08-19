@@ -19,9 +19,6 @@ const DoctorList = ({doctors}) => {
                         <DoctorCard doctor={doctor} key={doctor.id}/>
                     ))}
                 </div>
-                <div className="btn-light view-all">
-                    <Link to="/doctors-list">View All</Link>
-                </div>
             </div>
         </DoctorListStyled>
     );

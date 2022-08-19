@@ -2,6 +2,7 @@ import React from 'react';
 import Logo from "../../assets/images/Logo.svg";
 import {HeaderStyled} from "./Header.styled";
 import {Link} from "react-router-dom";
+import {useSelector} from "react-redux";
 
 const Header = () => {
     return (
@@ -20,9 +21,9 @@ const Header = () => {
                     <li>
                         Blog
                     </li>
-                    <li>
+                    <Link to="/login">
                         Login
-                    </li>
+                    </Link>
                 </ul>
             </div>
         </HeaderStyled>

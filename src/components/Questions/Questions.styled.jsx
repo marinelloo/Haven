@@ -5,6 +5,7 @@ export const QuestionsStyled = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 40px;
   
   .list__title {
     text-align: center;

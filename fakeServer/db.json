@@ -40,7 +40,7 @@
         "conversations":946,
         "specialisation":[
           "Anger Management",
-          "Depression",
+          "depression",
           "Domestic Violence"
         ]
       },
@@ -122,7 +122,7 @@
         "conversations":146,
         "specialisation":[
           "Anxiety / stress",
-          "Depression",
+          "depression",
           "Domestic Violence",
           "Grief / loss"
         ]
@@ -210,7 +210,7 @@
           "Addiction",
           "Anger",
           "Anxiety / stress",
-          "Depression",
+          "depression",
           "Dissociative disorders"
         ]
       },
@@ -276,7 +276,7 @@
           "(BACP) British Association for Counselling and Psychotherapy"
         ],
         "language":[
-          " English"
+          "English"
         ],
         "lastName":"St.john",
         "firstName":"Hanni",
@@ -328,7 +328,7 @@
           "(FHT) Federation of Holistic Therapists"
         ],
         "language":[
-          " English"
+          "English"
         ],
         "lastName":"Lau",
         "firstName":"Steven",

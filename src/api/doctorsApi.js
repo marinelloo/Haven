@@ -1,10 +1,15 @@
 import fakeServerInstance from "./instance";
 
-export const fetchDoctorsList = async () => {
+export const fetchDoctorsList = async (limit = 10,page = 1) => {
     try {
-        const response = await fakeServerInstance.get("/doctors");
-        return response.data
+        return await fakeServerInstance.get("/doctors", {
+            params: {
+                _limit: limit,
+                _page: page
+            }
+        })
     } catch (e) {
         console.log(e)
     }
 }
+

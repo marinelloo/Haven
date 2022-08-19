@@ -2,6 +2,7 @@ import {createGlobalStyle} from "styled-components";
 import JostBold from './fonts/Jost-Bold.ttf';
 import JostRegular from './fonts/Jost-Regular.ttf'
 
+
 export const GlobalStyles = createGlobalStyle`
   * {
     margin: 0;
@@ -22,6 +23,24 @@ export const GlobalStyles = createGlobalStyle`
   
   h1 {
     font-family: Jost Bold, sans-serif;
+  }
+  
+  .pages-wrapper {
+    margin: 10px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  }
+  
+  .page-btn {
+    padding: 10px 15px;
+    border: 1px solid dodgerblue;
+    cursor: pointer;
+  }
+  
+  .page-btn__current {
+    background-color: lightskyblue;
+    font-weight: bold;
   }
   
 `
