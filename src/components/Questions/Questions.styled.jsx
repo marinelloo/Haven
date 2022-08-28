@@ -5,8 +5,8 @@ export const QuestionsStyled = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 40px;
-  
+  padding: 30px 0;
+  overflow: hidden;
   .list__title {
     text-align: center;
     padding: 20px 0;

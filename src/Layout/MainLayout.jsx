@@ -4,11 +4,15 @@ import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 
 const StyledMainLayout = styled.div`
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  
   .content {
     width: 100%;
-    height: calc(100vh - 180px);
     display: flex;
     flex-direction: column;
+    height: calc(100vh - 160px);
     overflow: hidden;
   }
 `

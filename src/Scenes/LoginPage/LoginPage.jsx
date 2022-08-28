@@ -1,64 +1,91 @@
-import React, {useContext, useEffect, useRef, useState} from 'react';
+import React, {useState} from 'react';
+import { Formik, Form, Field } from 'formik';
+import * as Yup from 'yup';
 import {LoginPageStyled} from "./LoginPage.styled";
-import {Formik, Form, Field, ErrorMessage, useFormik, connect} from "formik";
-import {loginUser} from "../../store/redux";
+import {useDispatch} from "react-redux";
+import {login} from "../../store/features/user/userSlice";
+import axios from "axios";
+import {useNavigate} from 'react-router-dom'
+import {RouteNames} from "../../constants/routes";
 
-const LoginPage = (props) => {
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
 
-    function handleSubmit() {
-        loginUser({ username, password });
-        console.log(username, password)
+const SignupSchema = Yup.object().shape({
+
+    name: Yup.string()
+        .min(2, 'Too Short!')
+        .max(50, 'Too Long!')
+        .required('Required'),
+    password: Yup.string()
+        .min(2, 'Too Short!')
+        .max(6, 'Too Long!')
+        .required('Required'),
+    email: Yup.string().email('Invalid email').required('Required'),
+});
+
+const LoginPage = () => {
+    const [name, setName] = useState('');
+    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('');
+    const [isLogin,setIsLogin] = useState(false);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const handleSubmit = (values) => {
+        dispatch(login({
+            name: values.name,
+            email: values.email,
+            password: values.password,
+            loggedIn: true
+        }))
+        setIsLogin(true);
+        axios.post(
+            'http://localhost:3004/users',
+            {
+                name: values.name,
+                email: values.email,
+                password: values.password,
+            })
+        setTimeout(() => {
+            navigate(RouteNames.HOME)
+        }, 1000)
     }
-    if (props.loading && !props.user) {
-        return "Loading";
-    }
-    if (props.error) {
-        return props.error;
-    }
-
-    const initialValues = {
-        username: '',
-        password: ''
-    }
-
-
-    // const loginSchema = Yup.object().shape({
-    //     password: Yup.string()
-    //         .min(4, "Too Short!")
-    //         .max(50, "Too Long!")
-    //         .required("Required"),
-    //     email: Yup.string().email("Invalid email").required("Required")
-    // });
-
     return (
         <LoginPageStyled>
-            <Formik onSubmit={handleSubmit} initialValues={initialValues}>
-                <Form>
-                        <input
-                            type="text"
-                            value={username}
-                            name="username"
-                            placeholder="username"
-                            onChange={e => setUsername(e.target.value)}
-                        />
-                    <input
-                        type="password"
-                        value={password}
-                        name="password"
-                        placeholder="password"
-                        onChange={e => setPassword(e.target.value)}
-                    />
-                    <button type={'submit'}>Login</button>
-                </Form>
+            <h1>Signup</h1>
+            <Formik
+                initialValues={{
+                    name: '',
+                    password: '',
+                    email: '',
+                }}
+                validationSchema={SignupSchema}
+                onSubmit={( values) => {
+                    // same shape as initial values
+                    console.log(values);
+                    setName(values.name);
+                    setPassword(values.password);
+                    setEmail(values.email)
+                    handleSubmit(values)
+                }}
+                className="form"
+            >
+                {({ errors, touched }) => (
+                    <Form>
+                        <Field name="name" className="form-input" placeholder="Name"/>
+                            {errors.name && touched.name ? (
+                                <div className="form-error">{errors.name}</div>
+                            ) : null}
+                        <Field name="password" placeholder="Password"/>
+                        {errors.password && touched.password ? (
+                            <div className="form-error">{errors.password}</div>
+                        ) : null}
+                        <Field name="email" type="email" placeholder="Email"/>
+                        {errors.email && touched.email ? <div className="form-error">{errors.email}</div> : null}
+                        <button type="submit">Submit</button>
+                    </Form>
+                )}
             </Formik>
         </LoginPageStyled>
     );
 };
-
-
-LoginPage.propTypes = {};
-LoginPage.defaultProps = {};
 
 export default LoginPage;

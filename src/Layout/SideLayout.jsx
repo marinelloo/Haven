@@ -6,6 +6,7 @@ import Filter from "../components/SideBar/Filter";
 
 const StyledSideLayout = styled.div`
   background-color:  #f5f5f5;
+
   .sidebar-wrapper {
     display: grid;
     grid-column-gap: 20px;

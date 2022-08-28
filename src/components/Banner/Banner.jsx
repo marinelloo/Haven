@@ -26,9 +26,6 @@ const Banner = () => {
                     </div>
                 </div>
             </div>
-            <div className="banner-image">
-                <img src={Hands} alt="banner-image"/>
-            </div>
         </BannerStyled>
     );
 };

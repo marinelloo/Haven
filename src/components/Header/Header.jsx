@@ -1,10 +1,22 @@
 import React from 'react';
 import Logo from "../../assets/images/Logo.svg";
 import {HeaderStyled} from "./Header.styled";
-import {Link} from "react-router-dom";
-import {useSelector} from "react-redux";
+import {Link, useNavigate} from "react-router-dom";
+import {RouteNames} from "../../constants/routes";
+import {useDispatch, useSelector} from "react-redux";
+import {login, logout, selectUser} from "../../store/features/user/userSlice";
+
 
 const Header = () => {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const handleSubmit = (values) => {
+        dispatch(logout({
+            user
+        }))
+    }
+
+    const user = useSelector(selectUser)
     return (
         <HeaderStyled className="header">
             <div className="header-wrapper">
@@ -12,18 +24,31 @@ const Header = () => {
                     <Logo className="header__logo"/>
                 </Link>
                 <ul>
-                    <Link to="/home">
+                    <Link to={RouteNames.HOME}>
                         <li>Home</li>
                     </Link>
-                    <Link to="/doctors">
+                    <Link to={RouteNames.DOCTORS}>
                         <li>Our Therapists</li>
                     </Link>
                     <li>
                         Blog
                     </li>
-                    <Link to="/login">
-                        Login
-                    </Link>
+                    {
+                        user ?
+                            <>
+                                <Link to={RouteNames.MY_ACCOUNT}>
+                                    <li>My Account</li>
+                                </Link>
+                                <Link to={'/'}>
+                                    <li onClick={handleSubmit}>Logout</li>
+                                </Link>
+                            </>
+                            :
+                            <Link to={RouteNames.LOGIN}>
+                                <li>Login</li>
+                            </Link>
+                    }
+
                 </ul>
             </div>
         </HeaderStyled>

@@ -1,24 +1,38 @@
 import React, {useState} from 'react';
-import {Routes, Route, Navigate, Outlet} from "react-router-dom";
-import Home from "../Scenes/Home/Home";
-import Doctors from "../Scenes/Doctors/Doctors";
-import ErrorPage from "../Scenes/ErrorPage/ErrorPage";
-import LoginPage from "../Scenes/LoginPage/LoginPage";
+import {Routes, Route, Navigate} from "react-router-dom";
+import {loggedInRoutes, loggedOutRoutes, RouteNames} from "../constants/routes";
+import {useSelector} from "react-redux";
+import {selectUser} from "../store/features/user/userSlice";
+
 
 const RootRoute = () => {
+    const user = useSelector(selectUser);
+
     return (
-        <Routes>
-            <Route path="/login" element={<LoginPage/>} />
-            <Route path={"/"} element = {<React.Fragment><Outlet/></React.Fragment>}>
-                <Route path="/home" element={<Home/>}/>
-                <Route path="/doctors" element={<Doctors/>}/>
-                <Route path="/error-page" element={ <ErrorPage /> }/>
-                <Route
-                    path="*"
-                    element={ <Navigate to="/error-page" /> }
-                />
-            </Route>
-        </Routes>
+        user
+            ?
+            <Routes>
+                {loggedInRoutes.map(route =>
+                    <Route path={route.path}
+                            exact={route.exact}
+                            element={route.element}
+                            key = {route.path}
+                    />
+                )}
+                <Route path={"*"} element = {<Navigate to={RouteNames.HOME}/>}/>
+            </Routes>
+            :
+            <Routes>
+                {loggedOutRoutes.map(route =>
+                    <Route path={route.path}
+                           exact={route.exact}
+                           element={route.element}
+                           key={route.path}
+                    />
+                )}
+                <Route path={"*"} element = {<Navigate to={RouteNames.LOGIN}/>}/>
+            </Routes>
+
     );
 };
 

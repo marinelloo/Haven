@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const BlueButtonStyled = styled.button`
   font-size: 18px;
-  background-color: lightskyblue;
+  background-color: #74A1F8;
   color: #fefffc;
   padding: 15px 20px;
   border-radius: 12px;

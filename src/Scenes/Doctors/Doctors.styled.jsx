@@ -21,7 +21,7 @@ export const DoctorsStyled = styled.div`
     .sidebar__content {
       grid-area: content;
       padding: 20px;
-      height: calc(100vh - 180px);
+      height: 100vh;
       overflow: auto;
     }
 `

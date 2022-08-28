@@ -1,11 +1,13 @@
 import styled from "styled-components";
+import background from "../../assets/images/background.png"
 
 export const BannerStyled = styled.div`
-  background-color: #83c7f2;
+  background-image: url(${background});
+  background-size: contain;
   color: white;
   display: flex;
   justify-content: space-around;
-  height: 450px;
+  
   .banner-buttons {
     display: flex;
     gap: 24px;

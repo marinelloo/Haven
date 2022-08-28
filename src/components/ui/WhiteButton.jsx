@@ -23,7 +23,7 @@ const WhiteButtonStyled = styled.button`
 
 const WhiteButton = (props) => {
     return (
-        <WhiteButtonStyled>
+        <WhiteButtonStyled type = {props.type}>
             {props.children}
         </WhiteButtonStyled>
     );
