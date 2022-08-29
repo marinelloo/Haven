@@ -3,18 +3,22 @@ import MainLayout from "../../Layout/MainLayout";
 import {generatePath, Link, useHistory, useNavigate, useParams} from "react-router-dom";
 
 import {fetchDoctorsList} from "../../api/doctorsApi";
-import WhiteButton from "../../components/ui/WhiteButton";
-import BlueButton from "../../components/ui/BlueButton";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faStar} from "@fortawesome/free-solid-svg-icons";
-import {DoctorsStyled} from "../Doctors/Doctors.styled";
 import {DoctorPageStyled} from "./DoctorPage.styled";
+import {Button, Space, DatePicker, Modal, TimePicker, Input, Result} from "antd";
+import moment from "moment";
+import AppointmentModal from "../../components/AppointmentModal/AppointmentModal";
+
 
 const arrowRight = <FontAwesomeIcon icon={faStar} />;
 
 const DoctorPage = () => {
     const {id} = useParams();
-    const [doctorPage,setDoctorPage] = useState('')
+    const [doctorPage,setDoctorPage] = useState('');
+    const [showCalendar, setShowCalendar] = useState(false);
+
+
     useEffect(() => {
         async function fetchDoctor() {
             const res = await fetchDoctorsList();
@@ -24,7 +28,6 @@ const DoctorPage = () => {
         fetchDoctor();
     }, [id]);
 
-    console.log(doctorPage)
     return (
         <MainLayout>
             <DoctorPageStyled className={"doctor-wrapper"}>
@@ -43,7 +46,8 @@ const DoctorPage = () => {
                     <div className="doctor__text">
                         <h2>{doctorPage.firstName} {doctorPage.lastName}</h2>
                         <div className="doctor__btns">
-                            <BlueButton>Book Appointment</BlueButton>
+                                <Button onClick={() => setShowCalendar(true)}>Book Appointment</Button>
+                                <AppointmentModal visible={showCalendar} onCancel = {() => setShowCalendar(false)}/>
                         </div>
                         <div className={"doctor__description"}>
                             <p>

@@ -4,12 +4,6 @@ export const DoctorListStyled = styled.div`
   .list-wrapper {
     padding: 25px 104px;
   }
-  .list-filter {
-    padding-bottom: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
 
   .cards-list {
     display: grid;

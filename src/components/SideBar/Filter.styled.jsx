@@ -4,10 +4,10 @@ export const FilterStyled = styled.aside`
     grid-area: sidebar;
     background-color: #fafafa;
     padding: 20px;
+  height: 100%;
     
     h3 {
       font-size: 24px;
-      padding-bottom: 15px;
     }
   
     h4 {

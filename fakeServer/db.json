@@ -526,48 +526,6 @@
     {
       "name": "name",
       "email": "test@gmail.com",
-      "password": "pass ",
-      "id": 1
-    },
-    {
-      "name": "name",
-      "email": "test@gmail.com",
-      "password": "passw",
-      "id": 2
-    },
-    {
-      "name": "name",
-      "email": "test@gmail.com",
-      "password": "pass12",
-      "id": 3
-    },
-    {
-      "name": "123",
-      "email": "test@gmail.com",
-      "password": "123",
-      "id": 4
-    },
-    {
-      "name": "test",
-      "email": "test@gmail.com",
-      "password": "12313",
-      "id": 5
-    },
-    {
-      "name": "test",
-      "email": "test@gmail.com",
-      "password": "123456",
-      "id": 6
-    },
-    {
-      "name": "test",
-      "email": "test@gmail.com",
-      "password": "123456",
-      "id": 7
-    },
-    {
-      "name": "name",
-      "email": "test@gmail.com",
       "password": "pass",
       "id": 8
     },
@@ -594,6 +552,19 @@
       "email": "test@gmail.com",
       "password": "123456",
       "id": 12
+    },
+    {
+      "name": "Marina",
+      "email": "test@gmail.com",
+      "password": "123",
+      "id": 13
+    },
+    {
+      "name": "hjhh",
+      "email": "test@gmail.com",
+      "password": "123",
+      "id": 14
     }
-  ]
+  ],
+  "appointments": []
 }

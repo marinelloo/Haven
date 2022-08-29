@@ -9,11 +9,6 @@ const DoctorList = ({doctors}) => {
     return (
         <DoctorListStyled>
             <div>
-                <div className="list-wrapper">
-                    <div className="list-filter">
-                        <h3>Contact Therapists around you</h3>
-                    </div>
-                </div>
                 <div className="cards-list">
                     {doctors && doctors.map((doctor) => (
                         <DoctorCard doctor={doctor} key={doctor.id}/>

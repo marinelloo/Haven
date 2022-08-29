@@ -10,7 +10,7 @@ export const RouteNames = {
     MY_ACCOUNT: '/my-account',
     HOME: '/home',
     DOCTORS: '/doctors',
-    DOCTOR_PAGE: '/doctors/:id'
+    DOCTOR_PAGE: '/doctors/:id',
 }
 
 export const loggedInRoutes = [

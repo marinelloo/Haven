@@ -7,6 +7,7 @@ import MainLayout from "../../Layout/MainLayout";
 import {DoctorsStyled} from "./Doctors.styled";
 import Search from "../../components/Search/Search";
 import SideBar from "../../components/SideBar/Filter";
+import SideLayout from "../../Layout/SideLayout";
 
 
 const Doctors = () => {
@@ -81,14 +82,13 @@ const Doctors = () => {
     }
 
     const filterBySpec = (selectedSpec, event) => {
-
             setSelectedSpec(selectedSpec);
 
     }
 
 
     return (
-        <MainLayout>
+        <SideLayout>
             <DoctorsStyled>
                 <div className="sidebar-wrapper">
                     <div className="sidebar">
@@ -97,18 +97,23 @@ const Doctors = () => {
                         </SideBar>
                     </div>
                     <div className="sidebar__content">
-                        <Sorting value={selectedSort}
-                                 onChange={sortDoctors}
-                                 defaultValue="Sort By"
-                                 options={sortingOption}/>
-                        {
-                            sortedAndSearchDoctors.length ? <DoctorList doctors = {sortedAndSearchDoctors}/> : <h2>Not Found</h2>
-                        }
+                        <div className="list-wrapper">
+                            <div className="list-filter">
+                                <h3>Contact Therapists around you</h3>
+                                <Sorting value={selectedSort}
+                                         onChange={sortDoctors}
+                                         defaultValue="Sort By"
+                                         options={sortingOption}/>
+                            </div>
+                            {
+                                sortedAndSearchDoctors.length ? <DoctorList doctors = {sortedAndSearchDoctors}/> : <h2>Not Found</h2>
+                            }
+                        </div>
                         <Pagination page={page}  totalPages = {totalPages} changePage={changePage}/>
                     </div>
                 </div>
             </DoctorsStyled>
-        </MainLayout>
+        </SideLayout>
     );
 };
 

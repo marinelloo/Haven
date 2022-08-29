@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {FilterStyled} from "./Filter.styled";
 
 
-const SideBar = ({onChange}) => {
+const SideBar = (props,{onChange}) => {
 
     const [selectedFilter, setSelectedFilter] = useState(false);
     const [spec, setSpec] = useState('');
@@ -55,6 +55,7 @@ const SideBar = ({onChange}) => {
                 <h3>Filters</h3>
                 <div className="sidebar-filter__list">
                     <div className="sidebar__search">
+                        {props.children}
                     </div>
                     <div className="sidebar-filter__profile">
                         <h4>Specification</h4>

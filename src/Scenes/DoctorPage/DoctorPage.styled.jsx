@@ -25,4 +25,7 @@ export const DoctorPageStyled = styled.div`
   .doctor__description {
     padding-bottom: 20px;
   }
+  .book-modal {
+    width: 100%;
+  }
 `

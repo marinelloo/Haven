@@ -17,6 +17,10 @@ export const DoctorsStyled = styled.div`
       height: 100%;
       background-color: #fafafa;
     }
+  
+    .sidebar-filter {
+      height: 100%;
+    }
 
     .sidebar__content {
       grid-area: content;
@@ -24,4 +28,10 @@ export const DoctorsStyled = styled.div`
       height: 100vh;
       overflow: auto;
     }
+  .list-filter {
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 `

@@ -1,12 +1,8 @@
 import styled from "styled-components";
 
 export const QuestionsStyled = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   padding: 30px 0;
-  overflow: hidden;
+  
   .list__title {
     text-align: center;
     padding: 20px 0;
@@ -20,7 +16,6 @@ export const QuestionsStyled = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: stretch;
     width: 800px;
     padding-bottom: 30px;
   }
@@ -46,7 +41,7 @@ export const QuestionsStyled = styled.div`
   }
 
   .item-content {
-    overflow: hidden;
+    overflow: auto;
     max-height: 0;
     transition: all 0.5s cubic-bezier(0, 1, 0, 1);
     box-sizing: border-box;

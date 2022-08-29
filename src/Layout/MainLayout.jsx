@@ -4,16 +4,16 @@ import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 
 const StyledMainLayout = styled.div`
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
+  width: 100vw;
+  height: 100%;
   
   .content {
-    width: 100%;
+    width: 100vw;
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 160px);
-    overflow: hidden;
+    align-items: center;
+    height: calc(100vh - 80px);
+    overflow: auto;
   }
 `
 

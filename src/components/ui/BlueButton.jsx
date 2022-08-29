@@ -21,7 +21,7 @@ const BlueButtonStyled = styled.button`
 
 const BlueButton = (props) => {
     return (
-        <BlueButtonStyled>
+        <BlueButtonStyled type={props.type}>
             {props.children}
         </BlueButtonStyled>
     );
