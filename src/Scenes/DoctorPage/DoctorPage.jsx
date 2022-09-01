@@ -7,7 +7,6 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faStar} from "@fortawesome/free-solid-svg-icons";
 import {DoctorPageStyled} from "./DoctorPage.styled";
 import {Button, Space, DatePicker, Modal, TimePicker, Input, Result} from "antd";
-import moment from "moment";
 import AppointmentModal from "../../components/AppointmentModal/AppointmentModal";
 
 
@@ -47,7 +46,7 @@ const DoctorPage = () => {
                         <h2>{doctorPage.firstName} {doctorPage.lastName}</h2>
                         <div className="doctor__btns">
                                 <Button onClick={() => setShowCalendar(true)}>Book Appointment</Button>
-                                <AppointmentModal visible={showCalendar} onCancel = {() => setShowCalendar(false)}/>
+                                <AppointmentModal visible={showCalendar} onCancel = {() => setShowCalendar(false)} doctorId={doctorPage}/>
                         </div>
                         <div className={"doctor__description"}>
                             <p>

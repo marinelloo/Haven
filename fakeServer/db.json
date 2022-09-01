@@ -42,6 +42,12 @@
         "Anger Management",
         "depression",
         "Domestic Violence"
+      ],
+      "workTime": [
+        {
+          "startTime": "09:00",
+          "endTime": "19:00"
+        }
       ]
     },
     {
@@ -83,6 +89,12 @@
         "Abuse",
         "Anger",
         "Anxiety / stress"
+      ],
+      "workTime": [
+        {
+          "startTime": "07:00",
+          "endTime": "19:00"
+        }
       ]
     },
     {
@@ -125,6 +137,12 @@
         "depression",
         "Domestic Violence",
         "Grief / loss"
+      ],
+      "workTime": [
+        {
+          "startTime": "07:00",
+          "endTime": "19:00"
+        }
       ]
     },
     {
@@ -168,6 +186,12 @@
         "Addiction",
         "Anger",
         "Anxiety / stress"
+      ],
+      "workTime": [
+        {
+          "startTime": "07:00",
+          "endTime": "19:00"
+        }
       ]
     },
     {
@@ -212,6 +236,12 @@
         "Anxiety / stress",
         "depression",
         "Dissociative disorders"
+      ],
+      "workTime": [
+        {
+          "startTime": "07:00",
+          "endTime": "19:00"
+        }
       ]
     },
     {
@@ -263,6 +293,12 @@
         "Personal",
         "Education",
         "Work"
+      ],
+      "workTime": [
+        {
+          "startTime": "07:00",
+          "endTime": "19:00"
+        }
       ]
     },
     {
@@ -315,6 +351,12 @@
         "Mood",
         "Schizophrenia / psychosis",
         "Sleep concerns"
+      ],
+      "workTime": [
+        {
+          "startTime": "07:00",
+          "endTime": "19:00"
+        }
       ]
     },
     {
@@ -362,6 +404,12 @@
         "Abuse",
         "Anger",
         "Sleep concerns"
+      ],
+      "workTime": [
+        {
+          "startTime": "07:00",
+          "endTime": "19:00"
+        }
       ]
     },
     {
@@ -418,6 +466,12 @@
         "Schizophrenia / psychosis",
         "Education",
         "Neurodevelopmental"
+      ],
+      "workTime": [
+        {
+          "startTime": "07:00",
+          "endTime": "19:00"
+        }
       ]
     },
     {
@@ -469,6 +523,12 @@
         "Sleep concerns",
         "Trauma",
         "Work"
+      ],
+      "workTime": [
+        {
+          "startTime": "07:00",
+          "endTime": "19:00"
+        }
       ]
     },
     {
@@ -519,20 +579,34 @@
         "Somatic",
         "Trauma",
         "Work"
+      ],
+      "workTime": [
+        {
+          "startTime": "07:00",
+          "endTime": "19:00"
+        }
       ]
     }
   ],
   "users": [
     {
-      "name": "name",
-      "email": "test@gmail.com",
-      "password": "pass",
+      "date": "2022-08-31",
+      "time": [
+        "11:00",
+        "12:00"
+      ],
+      "notes": "jjj",
       "id": 8
     },
     {
-      "name": "test_name",
-      "email": "test@gmail.com",
-      "password": "123345",
+      "userAppointment": {
+        "date": "2022-09-06",
+        "time": [
+          "10:00",
+          "11:00"
+        ],
+        "notes": "notrerfjr"
+      },
       "id": 9
     },
     {
@@ -564,6 +638,59 @@
       "email": "test@gmail.com",
       "password": "123",
       "id": 14
+    },
+    {
+      "name": "Marina",
+      "email": "test@gmail.com",
+      "password": "Passwo",
+      "id": 15
+    },
+    {
+      "name": "name",
+      "email": "test@gmail.com",
+      "password": "pass",
+      "id": 16
+    },
+    {
+      "name": "testuser",
+      "email": "test@gmail.com",
+      "password": "342424",
+      "id": 17
+    },
+    {
+      "name": "nameuser",
+      "email": "test@gmail.com",
+      "password": "342424",
+      "id": 18
+    },
+    {
+      "name": "jj",
+      "email": "test@gmail.com",
+      "password": "kk",
+      "id": 19
+    },
+    {
+      "id": 20
+    },
+    {
+      "date": "2022-08-31",
+      "time": [
+        "11:00",
+        "14:00"
+      ],
+      "notes": "jj",
+      "id": 21
+    },
+    {
+      "userAppointment": {
+        "date": "2022-09-07",
+        "time": [
+          "11:00",
+          "12:00"
+        ],
+        "notes": "notes"
+      },
+      "id": 22
     }
   ],
   "appointments": []

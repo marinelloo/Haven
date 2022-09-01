@@ -43,6 +43,7 @@ const LoginPage = () => {
                 name: values.name,
                 email: values.email,
                 password: values.password,
+                userAppointment: {},
             })
         setTimeout(() => {
             navigate(RouteNames.HOME)
@@ -60,7 +61,6 @@ const LoginPage = () => {
                 validationSchema={SignupSchema}
                 onSubmit={( values) => {
                     // same shape as initial values
-                    console.log(values);
                     setName(values.name);
                     setPassword(values.password);
                     setEmail(values.email)
@@ -74,7 +74,7 @@ const LoginPage = () => {
                             {errors.name && touched.name ? (
                                 <div className="form-error">{errors.name}</div>
                             ) : null}
-                        <Field name="password" placeholder="Password"/>
+                        <Field type="password" name="password" placeholder="Password"/>
                         {errors.password && touched.password ? (
                             <div className="form-error">{errors.password}</div>
                         ) : null}
