@@ -14,6 +14,7 @@ const TimeSelector = ({onChange, workTime}) => {
         return Number(moment(endTime, "HH:mm").format('H'));
     }
 
+
     function range(start, end) {
         const result = [];
         for (let i = start; i < end; i++) {

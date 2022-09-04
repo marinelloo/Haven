@@ -8,13 +8,8 @@ import {login, logout, selectUser} from "../../store/features/user/userSlice";
 
 
 const Header = () => {
-    const dispatch = useDispatch();
     const navigate = useNavigate();
-    const handleSubmit = (values) => {
-        dispatch(logout({
-            user
-        }))
-    }
+
 
     const user = useSelector(selectUser)
     return (
@@ -38,9 +33,6 @@ const Header = () => {
                             <>
                                 <Link to={RouteNames.MY_ACCOUNT}>
                                     <li>My Account</li>
-                                </Link>
-                                <Link to={'/'}>
-                                    <li onClick={handleSubmit}>Logout</li>
                                 </Link>
                             </>
                             :

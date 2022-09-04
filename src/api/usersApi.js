@@ -9,10 +9,14 @@ export const fetchUsersList = async () => {
     }
 }
 
-export const updateUser = async () => {
+export const fetchUserAppointment = async (userId) => {
     try {
-        return await fakeServerInstance.put(`users/${id}`)
+        return await fakeServerInstance.get(`appointments/`, {
+            params: {
+                userId_like: userId
+            }
+        })
     } catch (e) {
-
+        console.log(e)
     }
 }

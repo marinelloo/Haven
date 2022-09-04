@@ -5,7 +5,7 @@ import Footer from "../components/Footer/Footer";
 
 const StyledMainLayout = styled.div`
   width: 100vw;
-  height: 100%;
+  
   
   .content {
     width: 100vw;

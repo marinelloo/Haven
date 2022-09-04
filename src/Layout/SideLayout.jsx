@@ -5,28 +5,20 @@ import styled from "styled-components";
 import Filter from "../components/SideBar/Filter";
 
 const StyledSideLayout = styled.div`
-  background-color:  #f5f5f5;
   
-  
-  .sidebar-wrapper {
+  .sidebar__content{
     display: grid;
+    height: calc(100vh - 80px);
   }
-  .sidebar{
-    grid-area: sidebar;
-    background-color: white;
-  }
-  
 `
 
 const SideLayout = (props) => {
     return (
         <StyledSideLayout>
             <Header/>
-            <div className="sidebar-wrapper">
                 <div className="sidebar__content">
                     {props.children}
                 </div>
-            </div>
             <Footer/>
         </StyledSideLayout>
     );

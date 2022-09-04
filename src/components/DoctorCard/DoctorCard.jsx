@@ -4,9 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faStar} from "@fortawesome/free-solid-svg-icons";
 import BlueButton from "../ui/BlueButton";
 import WhiteButton from "../ui/WhiteButton";
-import {generatePath, Link, useNavigate} from "react-router-dom";
-import DoctorPage from "../../Scenes/DoctorPage/DoctorPage";
-import {RouteNames} from "../../constants/routes";
+import { Link, useNavigate} from "react-router-dom";
+
 
 const arrowRight = <FontAwesomeIcon icon={faStar} />;
 

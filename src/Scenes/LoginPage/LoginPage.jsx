@@ -3,32 +3,24 @@ import { Formik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import {LoginPageStyled} from "./LoginPage.styled";
 import {useDispatch} from "react-redux";
-import {login} from "../../store/features/user/userSlice";
+import {login, setId} from "../../store/features/user/userSlice";
 import axios from "axios";
 import {useNavigate} from 'react-router-dom'
 import {RouteNames} from "../../constants/routes";
+import {SignupSchema} from "../../scripts/validationForm";
 
-
-const SignupSchema = Yup.object().shape({
-
-    name: Yup.string()
-        .min(2, 'Too Short!')
-        .max(50, 'Too Long!')
-        .required('Required'),
-    password: Yup.string()
-        .min(2, 'Too Short!')
-        .max(6, 'Too Long!')
-        .required('Required'),
-    email: Yup.string().email('Invalid email').required('Required'),
-});
 
 const LoginPage = () => {
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
     const [isLogin,setIsLogin] = useState(false);
+    const [accountId, setAccountId] = useState(null);
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
+    let userId;
+
     const handleSubmit = (values) => {
         dispatch(login({
             name: values.name,
@@ -44,9 +36,15 @@ const LoginPage = () => {
                 email: values.email,
                 password: values.password,
                 userAppointment: {},
-            })
+            }).then(response => {
+                dispatch(setId(
+                    response.data.id
+                ))
+            }
+        )
         setTimeout(() => {
             navigate(RouteNames.HOME)
+            setAccountId(userId)
         }, 1000)
     }
     return (
@@ -60,7 +58,6 @@ const LoginPage = () => {
                 }}
                 validationSchema={SignupSchema}
                 onSubmit={( values) => {
-                    // same shape as initial values
                     setName(values.name);
                     setPassword(values.password);
                     setEmail(values.email)

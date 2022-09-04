@@ -42,5 +42,9 @@ export const GlobalStyles = createGlobalStyle`
     background-color: lightskyblue;
     font-weight: bold;
   }
+
+  ul {
+    list-style: none;
+  }
   
 `

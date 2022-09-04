@@ -45,7 +45,7 @@
       ],
       "workTime": [
         {
-          "startTime": "09:00",
+          "startTime": "12:00",
           "endTime": "19:00"
         }
       ]
@@ -691,7 +691,279 @@
         "notes": "notes"
       },
       "id": 22
+    },
+    {
+      "name": "test",
+      "email": "test@gmail.com",
+      "password": "121323",
+      "userPhoto": "",
+      "userAppointment": {
+        "appointment": {
+          "date": "2022-09-12",
+          "time": [
+            "13:00",
+            "16:00"
+          ],
+          "notes": "jhh"
+        }
+      },
+      "id": 23
+    },
+    {
+      "name": "name",
+      "email": "test@gmail.com",
+      "password": "123",
+      "userAppointment": {},
+      "id": 24
+    },
+    {
+      "name": "name",
+      "email": "test2@gmail.com",
+      "password": "12331",
+      "userAppointment": {},
+      "id": 25
+    },
+    {
+      "name": " marina",
+      "email": "test@gmail.com",
+      "password": "test",
+      "userAppointment": {},
+      "id": 26
+    },
+    {
+      "name": " marinaUpdate",
+      "email": "testUpdate@gmail.com",
+      "password": "testff",
+      "userAppointment": {},
+      "id": 27
+    },
+    {
+      "name": " marinaUpdate2",
+      "email": "testUpdate@gmail.com",
+      "password": "testff",
+      "userAppointment": {},
+      "id": 28
+    },
+    {
+      "name": " marinaUpdate2",
+      "email": "testUpdate@gmail.com",
+      "password": "testff",
+      "userAppointment": {},
+      "id": 29
+    },
+    {
+      "name": " marinaUpdate6666",
+      "email": "testUpdate@gmail.com",
+      "password": "testff",
+      "lastName": "addLast Name",
+      "userAppointment": {},
+      "id": 30
+    },
+    {
+      "name": "maryna",
+      "email": "test@gmail.com",
+      "password": "123456",
+      "userAppointment": {},
+      "id": 31
+    },
+    {
+      "name": "marynaUpdate",
+      "email": "test@gmail.com",
+      "password": "123456",
+      "userAppointment": {},
+      "id": 32
+    },
+    {
+      "name": "Marina",
+      "email": "test@gmail.com",
+      "password": "123456",
+      "userAppointment": {},
+      "id": 33
+    },
+    {
+      "name": "name",
+      "email": "te@gmail.com",
+      "password": "123131",
+      "userAppointment": {},
+      "id": 34
+    },
+    {
+      "name": "tstsg1",
+      "email": "test@gmail.com",
+      "password": "12345",
+      "userAppointment": {},
+      "id": 35
+    },
+    {
+      "name": "marina",
+      "email": "ts@fmail.com",
+      "password": "12313",
+      "userAppointment": {},
+      "id": 36
+    },
+    {
+      "name": "khjjkh",
+      "email": "test@gmail.com",
+      "password": "3444",
+      "userAppointment": {},
+      "id": 37
+    },
+    {
+      "name": "ljj",
+      "email": "te@gmail.com",
+      "password": "8888",
+      "userAppointment": {},
+      "id": 38
+    },
+    {
+      "name": "name",
+      "email": "test@gmail.com",
+      "password": "lgkkg",
+      "userAppointment": {},
+      "id": 39
+    },
+    {
+      "name": "kkjj",
+      "email": "test1@gmail.com",
+      "password": "35444",
+      "userAppointment": {},
+      "id": 40
+    },
+    {
+      "name": "name",
+      "email": "test@gmail.com",
+      "password": "12313",
+      "userAppointment": {},
+      "id": 41
+    },
+    {
+      "name": "name",
+      "email": "43434@gmail.com",
+      "password": "232323",
+      "userAppointment": {},
+      "id": 42
+    },
+    {
+      "name": "jjjj",
+      "email": "test@gmail.com",
+      "password": "12313",
+      "userAppointment": {},
+      "id": 43
+    },
+    {
+      "type": "user/userAppointment",
+      "appointment": {
+        "date": "2022-09-05",
+        "time": [
+          "13:00",
+          "16:00"
+        ],
+        "notes": "hjkh. ih hhi hih"
+      },
+      "id": 44
+    },
+    {
+      "name": "sign nup name",
+      "email": "ii@kf.com",
+      "password": "32232",
+      "userAppointment": {},
+      "id": 45,
+      "appointment": {
+        "date": "2022-09-12",
+        "time": [
+          "15:00",
+          "18:00"
+        ],
+        "notes": "jbjh. ij i. uiui"
+      },
+      "type": "user/userAppointment",
+      "payload": {
+        "date": "2022-09-19",
+        "time": [
+          "14:00",
+          "18:00"
+        ],
+        "notes": "j. i u"
+      }
+    },
+    {
+      "name": "Marina",
+      "email": "test@gmail.com",
+      "password": "76767",
+      "userAppointment": {},
+      "id": 46
     }
   ],
-  "appointments": []
+  "appointments": [
+    {
+      "date": "2022-09-19",
+      "time": [
+        "15:00",
+        "16:00"
+      ],
+      "notes": "test notes",
+      "userId": 45,
+      "doctorName": "Christiana",
+      "doctorLastName": "Troussa",
+      "doctorJob": "Counsellor",
+      "doctorPhoto": "https://randomuser.me/api/portraits/women/1.jpg",
+      "doctorId": "1",
+      "id": 1
+    },
+    {
+      "date": "2022-09-18",
+      "time": "10:00",
+      "notes": "test notes test notes  test notes  test notes  ",
+      "userId": 45,
+      "doctorName": "Tim",
+      "doctorLastName": "Webber",
+      "doctorJob": "Clinical Psychotherapist",
+      "doctorPhoto": "https://randomuser.me/api/portraits/men/1.jpg",
+      "doctorId": "3",
+      "id": 2
+    },
+    {
+      "date": "2022-09-13",
+      "time": "09:00",
+      "notes": "help ",
+      "userId": 45,
+      "doctorName": "Tim",
+      "doctorLastName": "Webber",
+      "doctorJob": "Clinical Psychotherapist",
+      "doctorPhoto": "https://randomuser.me/api/portraits/men/1.jpg",
+      "doctorId": "3",
+      "id": 3
+    },
+    {
+      "date": "2022-09-26",
+      "time": "16:00",
+      "notes": "no notes",
+      "userId": 46,
+      "doctorName": "Christiana",
+      "doctorLastName": "Troussa",
+      "doctorJob": "Counsellor",
+      "doctorPhoto": "https://randomuser.me/api/portraits/women/1.jpg",
+      "doctorId": "1",
+      "id": 4
+    },
+    {
+      "date": "2022-09-19",
+      "time": "15:00",
+      "notes": "jjj",
+      "userId": 46,
+      "doctorName": "Christiana",
+      "doctorLastName": "Troussa",
+      "doctorJob": "Counsellor",
+      "doctorPhoto": "https://randomuser.me/api/portraits/women/1.jpg",
+      "doctorId": "1",
+      "id": 5
+    }
+  ],
+  "doctorAppointment": [
+    {
+      "doctorId": "1",
+      "date": "2022-09-19",
+      "id": 1
+    }
+  ]
 }

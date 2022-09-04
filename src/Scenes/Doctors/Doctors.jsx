@@ -43,7 +43,6 @@ const Doctors = () => {
             setDoctors(res.data);
             const totalCount = res.headers['x-total-count'];
             setTotalPages(Math.ceil(totalCount / limit));
-            console.log(totalPages)
         }
         fetchData();
     }, [page]);

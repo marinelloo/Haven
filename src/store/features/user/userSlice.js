@@ -15,14 +15,16 @@ export const userSlice = createSlice(
                 state.user = null
             },
             userAppointment: (state, action) => {
-                console.log(action.payload)
                 state.user = {...state, appointments: action.payload}
+            },
+            setId:(state, action) => {
+                state.user = {...state, userId: action.payload}
             }
         }
     }
 );
 
-export const {login, logout, userAppointment} = userSlice.actions;
+export const {login, logout, userAppointment, setId} = userSlice.actions;
 export const selectUser = (state) => state.user.user;
 
 export default userSlice.reducer;
