@@ -4,20 +4,28 @@ export const QuestionsStyled = styled.div`
   padding: 30px 0;
   
   .list__title {
-    text-align: center;
-    padding: 20px 0;
-    
+    text-align: left;
     p {
       color: darkgrey;
     }
+  }
+  
+  .list-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
   }
 
   .accordion {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 800px;
+    width: 600px;
     padding-bottom: 30px;
+  }
+  
+  .list-image {
+    padding: 0;
   }
 
   .item {

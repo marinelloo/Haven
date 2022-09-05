@@ -20,15 +20,15 @@ const UserNavigation = () => {
         <UserNavigationStyled className={"account-sidebar"}>
             <div className={"account-list"}>
                 <NavLink to = {RouteNames.MY_ACCOUNT} style={({ isActive }) =>
-                    (isActive ? {color: '#eb9090'} : {color: 'white'})}>
+                    (isActive ? {color: '#eb9090'} : {color: '#483E58'})}>
                         My Account
                 </NavLink>
                 <NavLink to={RouteNames.MY_APPOINTMENTS} style={({ isActive }) =>
-                    (isActive ? {color: '#eb9090'} : {color: 'white'})}>
+                    (isActive ? {color: '#eb9090'} : {color: '#483E58'})}>
                         My Appointments
                 </NavLink>
                 <NavLink to={RouteNames.LOGIN} style={({ isActive }) =>
-                    (isActive ? {color: '#eb9090'} : {color: 'white'})} onClick={handleSubmit}>
+                    (isActive ? {color: '#eb9090'} : {color: '#483E58'})} onClick={handleSubmit}>
                     Logout
                 </NavLink>
             </div>

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
+import FAQ from "../../assets/images/FAQtag.svg"
+import FAQImage from "../../assets/images/Faq_photo.png"
 import { QuestionsStyled } from "./Questions.styled";
 
 const arrowRight = <FontAwesomeIcon icon={faPlus} />;
@@ -40,15 +42,11 @@ function QuestionsList() {
     };
     return (
         <QuestionsStyled>
-            <div className="list-wrapper" />
             <div className="list__title">
-                <h2>
-                    Questions Answered
-                </h2>
-                <p>Here some of the most frequently asked questions related to our service
-                </p>
+                <FAQ/>
             </div>
-            <div className="accordion">
+            <div className="list-wrapper">
+                <div className="accordion">
                 {questionData.map((item, index) => (
                     <div className="item" key={index}>
                         <div
@@ -70,6 +68,7 @@ function QuestionsList() {
                         </div>
                     </div>
                 ))}
+            </div>
             </div>
         </QuestionsStyled>
     );

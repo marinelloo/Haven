@@ -13,7 +13,7 @@ const MyAccountStyled = styled.div`
   li {
     margin: 0;
     list-style: none;
-    color: white;
+    color: #483E58;
     font-size: 24px;
     cursor: pointer;
     display: block;
@@ -32,11 +32,11 @@ const MyAccountStyled = styled.div`
   .account-sidebar {
     padding: 30px;
     grid-area: sidebar;
-    background-image: url(${userBackground});
+    background-color: #F4FAFF;
     font-size: 18px;
     
     h3 {
-      color: white;
+      color: #483E58;
     }
     img {
       height: 100%;
