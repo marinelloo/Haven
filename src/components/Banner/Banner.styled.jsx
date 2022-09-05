@@ -2,14 +2,21 @@ import styled from "styled-components";
 import background from "../../assets/images/background.png"
 
 export const BannerStyled = styled.div`
-  background-color: #74A1F8;
-  color: white;
-  display: flex;
-  justify-content: center;
+  background-color: #F4FAFF;
   width: 100%;
+  height: 395px;
+  display: grid;
   
   h1 {
-    color: white;
+    color: #483E58;
+  }
+  
+  p {
+    color: #483E58;
+  }
+  
+  strong {
+    color: #3066BE;
   }
   
   .banner-buttons {
@@ -18,16 +25,25 @@ export const BannerStyled = styled.div`
   }
   
   .banner-wrapper {
-    padding: 20px 30px;
-    display: flex;
-    flex-direction: row;
+    padding-left: 80px;
+    font-size: 18px;
+    width: 40%;
   }
   .banner-wrapper  {
-    font-size: 18px;
+    
+  }
+  
+  .banner-wrapper__image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
   }
   
   img {
-    height: 400px;
+    height: 500px;
+    width: 100%;
     object-fit: contain;
   }
 `

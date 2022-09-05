@@ -77,7 +77,7 @@ const LoginPage = () => {
                         ) : null}
                         <Field name="email" type="email" placeholder="Email"/>
                         {errors.email && touched.email ? <div className="form-error">{errors.email}</div> : null}
-                        <button type="submit">Submit</button>
+                        <button type="submit" className={"login-button"}>Submit</button>
                     </Form>
                 )}
             </Formik>

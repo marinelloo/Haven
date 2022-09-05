@@ -1,14 +1,15 @@
 import styled from "styled-components";
 
 export const HeaderStyled = styled.div`
-  background-color: #74A1F8;
-  height: 80px;
+  background-color: #F4FAFF;
   border-bottom: #fefffc4d solid 1px;
   
   .header-wrapper {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: flex-start;
+    padding: 12px 0 12px 50px;
+    gap: 100px;
   }
   
   .header__logo {
@@ -22,18 +23,17 @@ export const HeaderStyled = styled.div`
     padding: 0;
     overflow: hidden;
     align-items: center;
-    
   }
   
   li:hover {
-    background: #fefffc4d;
+    color: #3066BE
   }
   
   li {
     margin: 0;
     list-style: none;
-    color: white;
-    font-size: 24px;
+    color: #483E58;
+    font-size: 20px;
     cursor: pointer;
     display: block;
     padding: 25px 15px;

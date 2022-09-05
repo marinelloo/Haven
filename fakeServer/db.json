@@ -892,6 +892,20 @@
       "password": "76767",
       "userAppointment": {},
       "id": 46
+    },
+    {
+      "name": "njj",
+      "email": "test@tt.com",
+      "password": "jjj",
+      "userAppointment": {},
+      "id": 47
+    },
+    {
+      "name": "Marina",
+      "email": "test1@gmail.com",
+      "password": "13223",
+      "userAppointment": {},
+      "id": 48
     }
   ],
   "appointments": [
@@ -957,6 +971,18 @@
       "doctorPhoto": "https://randomuser.me/api/portraits/women/1.jpg",
       "doctorId": "1",
       "id": 5
+    },
+    {
+      "date": "2022-09-19",
+      "time": "13:00",
+      "notes": "gugig",
+      "userId": 47,
+      "doctorName": "Christiana",
+      "doctorLastName": "Troussa",
+      "doctorJob": "Counsellor",
+      "doctorPhoto": "https://randomuser.me/api/portraits/women/1.jpg",
+      "doctorId": "1",
+      "id": 6
     }
   ],
   "doctorAppointment": [
@@ -964,6 +990,11 @@
       "doctorId": "1",
       "date": "2022-09-19",
       "id": 1
+    },
+    {
+      "doctorId": "1",
+      "date": "2022-09-19",
+      "id": 2
     }
   ]
 }

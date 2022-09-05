@@ -25,6 +25,10 @@ export const GlobalStyles = createGlobalStyle`
     font-family: Jost Bold, sans-serif;
   }
   
+  strong {
+    font-family: Jost Bold, sans-serif;
+  }
+  
   .pages-wrapper {
     margin: 10px;
     display: flex;
