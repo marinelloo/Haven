@@ -2,16 +2,17 @@ import React from 'react';
 import styled from "styled-components";
 
 const WhiteButtonStyled = styled.button`
-  font-size: 18px;
+  font-size: 16px;
   background-color: transparent;
-  color: black;
-  border: 1px solid black;
-  padding: 15px 20px;
-  border-radius: 12px;
+  color: #483E58;
+  border: transparent;
   text-decoration: none;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
   transition: all 0.3s ease 0s;
   cursor: pointer;
+  margin: 5px;
+  padding: 8px 24px;
+  border-radius: 10px;
   
   &:hover {
     background-color: #2ee59d;

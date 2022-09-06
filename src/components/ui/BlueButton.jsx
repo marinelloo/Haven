@@ -2,15 +2,14 @@ import React from 'react';
 import styled from "styled-components";
 
 const BlueButtonStyled = styled.button`
-  font-size: 18px;
-  background-color: #74A1F8;
-  color: #fefffc;
-  padding: 15px 20px;
-  border-radius: 12px;
-  text-decoration: none;
-  transition: all 0.3s ease 0s;
+  background-color: #3066BE;
+  border: transparent;
+  color: white;
+  margin: 5px;
+  padding: 8px 24px;
+  border-radius: 10px;
   cursor: pointer;
-  border: none;
+  transition: all 0.3s ease 0s;
   
   &:hover {
     background-color: #2ee59d;

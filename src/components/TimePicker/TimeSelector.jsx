@@ -2,8 +2,7 @@ import React from 'react';
 import moment from "moment";
 import {TimePicker} from "antd";
 
-const TimeSelector = ({onChange, workTime}) => {
-
+const TimeSelector = ({onChange, workTime, busyStartTime, endTime}) => {
     const getStartTime = () => {
         const startTime = workTime.map(value => value.startTime);
         return Number(moment(startTime, "HH:mm").format('H'));
@@ -23,14 +22,6 @@ const TimeSelector = ({onChange, workTime}) => {
         return result;
     }
 
-    function disabledDateTime() {
-        const endTime = getEndTime();
-        const startTime = getStartTime();
-        return {
-            disabledHours: () => range(24, 0).splice(endTime, startTime),
-            disabledMinutes: () => range(30, 60),
-        };
-    }
 
     function disabledRangeTime(_, type) {
         const endTime = getEndTime();
@@ -38,17 +29,25 @@ const TimeSelector = ({onChange, workTime}) => {
         const newArr = range(0, 24).splice(startTime);
         const endIndex = newArr.indexOf(endTime + 1);
         newArr.splice(endIndex);
+        const busyStartArr = busyStartTime.map((value) => Number(moment(value, 'HH:mm').format('H')));
+        const disabledWorkHours = [...range(0, 24).filter(value => busyStartArr.includes(value)), ...range(0, 24).filter(value => !newArr.includes(value))]
+
+
         if (type === 'start') {
-            return {
-                disabledHours: () => range(0, 24).filter(value => !newArr.includes(value))
-                // disabledMinutes: () => range(30, 60),
-            };
+                 const disabledHours = () => {
+                    return disabledWorkHours
+                 }
+                 disabledHours();
+
         }
         return {
-            disabledHours: () => range(0, 24).filter(value => !newArr.includes(value))
-            // disabledMinutes: () => range(0, 31),
-        };
+            disabledHours: () => disabledWorkHours,
+        }
+
+
     }
+
+
     return (
         <TimePicker.RangePicker
             defaultOpenValue={moment('00:00', 'HH:mm')}
@@ -56,7 +55,7 @@ const TimeSelector = ({onChange, workTime}) => {
             minuteStep={30}
             onChange={onChange}
             disabledTime={disabledRangeTime}
-            hideDisabledOptions={true}
+            hideDisabledOptions={false}
         />
     );
 };

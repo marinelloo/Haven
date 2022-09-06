@@ -913,6 +913,27 @@
       "password": "1232",
       "userAppointment": {},
       "id": 49
+    },
+    {
+      "name": "Marina",
+      "email": "test@gmail.com",
+      "password": "34234",
+      "userAppointment": {},
+      "id": 50
+    },
+    {
+      "name": "jfhr",
+      "email": "te@gmg.com",
+      "password": "4343",
+      "userAppointment": {},
+      "id": 51
+    },
+    {
+      "name": "Marina Chertkoieva",
+      "email": "test333@gmail.com",
+      "password": "3333",
+      "userAppointment": {},
+      "id": 52
     }
   ],
   "appointments": [
@@ -932,76 +953,146 @@
       "id": 1
     },
     {
-      "date": "2022-09-18",
-      "time": "10:00",
-      "notes": "test notes test notes  test notes  test notes  ",
-      "userId": 45,
-      "doctorName": "Tim",
-      "doctorLastName": "Webber",
-      "doctorJob": "Clinical Psychotherapist",
-      "doctorPhoto": "https://randomuser.me/api/portraits/men/1.jpg",
-      "doctorId": "3",
-      "id": 2
+      "date": "2022-09-14",
+      "time": "2022-09-06T12:00:00.640Z",
+      "notes": "fddf",
+      "userId": 51,
+      "doctorName": "Christiana",
+      "doctorLastName": "Troussa",
+      "doctorJob": "Counsellor",
+      "doctorPhoto": "https://randomuser.me/api/portraits/women/1.jpg",
+      "doctorId": "1",
+      "id": 9
     },
     {
       "date": "2022-09-13",
-      "time": "09:00",
-      "notes": "help ",
-      "userId": 45,
-      "doctorName": "Tim",
-      "doctorLastName": "Webber",
-      "doctorJob": "Clinical Psychotherapist",
-      "doctorPhoto": "https://randomuser.me/api/portraits/men/1.jpg",
-      "doctorId": "3",
-      "id": 3
+      "time": "2022-09-06T06:00:00.907Z",
+      "notes": "test",
+      "userId": 51,
+      "doctorName": "Joanne",
+      "doctorLastName": "Walker",
+      "doctorJob": "Counsellor",
+      "doctorPhoto": "https://randomuser.me/api/portraits/women/2.jpg",
+      "doctorId": "2",
+      "id": 10
+    },
+    {
+      "date": "2022-09-06",
+      "time": "2022-09-06T12:30:00.758Z",
+      "notes": "kk",
+      "userId": 51,
+      "doctorName": "Christiana",
+      "doctorLastName": "Troussa",
+      "doctorJob": "Counsellor",
+      "doctorPhoto": "https://randomuser.me/api/portraits/women/1.jpg",
+      "doctorId": "1",
+      "id": 11
+    },
+    {
+      "date": "2022-09-07",
+      "time": "2022-09-06T11:00:00.377Z",
+      "notes": "mfnf",
+      "userId": 51,
+      "doctorName": "Christiana",
+      "doctorLastName": "Troussa",
+      "doctorJob": "Counsellor",
+      "doctorPhoto": "https://randomuser.me/api/portraits/women/1.jpg",
+      "doctorId": "1",
+      "id": 12
+    },
+    {
+      "date": "2022-09-07",
+      "time": "2022-09-06T12:00:00.808Z",
+      "notes": "",
+      "userId": 51,
+      "doctorName": "Christiana",
+      "doctorLastName": "Troussa",
+      "doctorJob": "Counsellor",
+      "doctorPhoto": "https://randomuser.me/api/portraits/women/1.jpg",
+      "doctorId": "1",
+      "id": 13
+    },
+    {
+      "date": "2022-09-07",
+      "time": "2022-09-06T10:00:00.606Z",
+      "notes": "notes",
+      "userId": 52,
+      "doctorName": "Christiana",
+      "doctorLastName": "Troussa",
+      "doctorJob": "Counsellor",
+      "doctorPhoto": "https://randomuser.me/api/portraits/women/1.jpg",
+      "doctorId": "1",
+      "id": 14
     },
     {
       "date": "2022-09-26",
-      "time": "16:00",
-      "notes": "no notes",
-      "userId": 46,
+      "time": "2022-09-06T16:00:00.214Z",
+      "notes": "jj",
+      "userId": 52,
       "doctorName": "Christiana",
       "doctorLastName": "Troussa",
       "doctorJob": "Counsellor",
       "doctorPhoto": "https://randomuser.me/api/portraits/women/1.jpg",
       "doctorId": "1",
-      "id": 4
+      "id": 15
     },
     {
-      "date": "2022-09-19",
-      "time": "15:00",
-      "notes": "jjj",
-      "userId": 46,
+      "date": "2022-09-15",
+      "time": "2022-09-06T12:30:00.508Z",
+      "notes": "jj",
+      "userId": 52,
       "doctorName": "Christiana",
       "doctorLastName": "Troussa",
       "doctorJob": "Counsellor",
       "doctorPhoto": "https://randomuser.me/api/portraits/women/1.jpg",
       "doctorId": "1",
-      "id": 5
+      "id": 16
     },
     {
-      "date": "2022-09-19",
-      "time": "13:00",
-      "notes": "gugig",
-      "userId": 47,
+      "date": "2022-09-20",
+      "time": "2022-09-06T13:30:00.090Z",
+      "notes": "nn",
+      "userId": 52,
       "doctorName": "Christiana",
       "doctorLastName": "Troussa",
       "doctorJob": "Counsellor",
       "doctorPhoto": "https://randomuser.me/api/portraits/women/1.jpg",
       "doctorId": "1",
-      "id": 6
+      "id": 17
     }
   ],
   "doctorAppointment": [
     {
       "doctorId": "1",
-      "date": "2022-09-19",
-      "id": 1
+      "date": "2022-09-07",
+      "startTime": "12:00",
+      "endTime": "13:00",
+      "duration": "60",
+      "id": 12
     },
     {
       "doctorId": "1",
-      "date": "2022-09-19",
-      "id": 2
+      "date": "2022-09-26",
+      "startTime": "18:00",
+      "endTime": "18:30",
+      "duration": "30",
+      "id": 13
+    },
+    {
+      "doctorId": "1",
+      "date": "2022-09-15",
+      "startTime": "14:30",
+      "endTime": "15:00",
+      "duration": "30",
+      "id": 14
+    },
+    {
+      "doctorId": "1",
+      "date": "2022-09-20",
+      "startTime": "15:30",
+      "endTime": "16:00",
+      "duration": "30",
+      "id": 15
     }
   ]
 }

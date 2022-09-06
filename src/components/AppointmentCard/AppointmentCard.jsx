@@ -1,15 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import {AppointmentCardStyled} from "./AppointmentCard.styled";
-import {fetchDoctorsList} from "../../api/doctorsApi";
 import moment from "moment";
 import {Link} from "react-router-dom";
-import {RouteNames} from "../../constants/routes";
+
 
 const AppointmentCard = ({appointments}) => {
     return (
        <AppointmentCardStyled>
            {appointments.map((appointment) => (
-               <div className={"appointment-card"}>
+               <div className={"appointment-card"} key={Date.now()}>
                    <div className={"appointment-card__doctor"}>
                        <div className={'doctorPhoto'}>
                            <img src={appointment.doctorPhoto}/>
@@ -27,7 +26,7 @@ const AppointmentCard = ({appointments}) => {
                    </div>
                    <div className={"appointment-card__user"}>
                        <h6 className={"appointment-date"}>
-                           {moment(`${appointment.date}`).format('LL')} {appointment.time}
+                           {moment(`${appointment.date}`).format('LL')} {moment(appointment.time).format("HH:mm")}
                        </h6>
                        <div>
                            <h6>Notes for Appointment</h6>

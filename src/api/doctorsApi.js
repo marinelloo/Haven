@@ -13,3 +13,14 @@ export const fetchDoctorsList = async (limit = 10,page = 1) => {
     }
 }
 
+export const fetchDoctorAppointment = async (doctorId) => {
+    try {
+        return await fakeServerInstance.get(`doctorAppointment/`, {
+            params: {
+                doctorId_like: doctorId
+            }
+        })
+    } catch (e) {
+        console.log(e)
+    }
+}

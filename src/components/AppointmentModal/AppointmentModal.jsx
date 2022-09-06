@@ -10,8 +10,9 @@ import {login, selectUser, userAppointment} from "../../store/features/user/user
 import axios from "axios";
 import {RouteNames} from "../../constants/routes";
 import {useNavigate, useParams} from "react-router-dom";
-import {fetchDoctorsList} from "../../api/doctorsApi";
+import {fetchDoctorAppointment, fetchDoctorsList} from "../../api/doctorsApi";
 import doctors from "../../Scenes/Doctors/Doctors";
+import {validate} from "@babel/core/lib/config/validation/options";
 
 
 const AppointmentModal = ({visible, onCancel, doctorId}) => {
@@ -23,12 +24,19 @@ const AppointmentModal = ({visible, onCancel, doctorId}) => {
     const navigate = useNavigate();
 
     const [selectedDoctor, setSelectedDoctor] = useState('');
+    const [busyStartTimeDoctor, setBusyStartTimeDoctor] =useState([]);
+    const [busyEndTimeDoctor, setBusyEndTimeDoctor] =useState([]);
 
     useEffect(() => {
         async function fetchDoctor() {
             const res = await fetchDoctorsList();
+            const time = await fetchDoctorAppointment(id)
             const doctorId = res.data.find(doctor => doctor.id === id);
-            setSelectedDoctor(doctorId)
+            const doctorStartTime = time.data.map(value => value.startTime);
+            const doctorEndTime = time.data.map(value => value.endTime);
+            setSelectedDoctor(doctorId);
+            setBusyStartTimeDoctor(doctorStartTime);
+            setBusyEndTimeDoctor(doctorEndTime);
         }
         fetchDoctor();
     }, [id]);
@@ -44,9 +52,7 @@ const AppointmentModal = ({visible, onCancel, doctorId}) => {
 
     const handleSubmit = event => {
         event.preventDefault();
-        const selectedDate = moment(dateSelected).format("YYYY-MM-DD");
-        // const duration = moment.duration(Number(timeSelected), "minutes").format('h:mm');
-        // console.log(duration)
+        const duration = moment.duration(moment(timeSelected[1]).diff(moment(timeSelected[0]))).asMinutes().toFixed();
         axios.post(
             `http://localhost:3004/appointments/`,
                 {
@@ -65,6 +71,9 @@ const AppointmentModal = ({visible, onCancel, doctorId}) => {
             {
                 doctorId: id,
                 date: dateSelected,
+                startTime: moment(timeSelected[0]).format('HH:mm'),
+                endTime: moment(timeSelected[1]).format('HH:mm'),
+                duration: duration
             }
             )
         setTimeout(() => {
@@ -88,13 +97,14 @@ const AppointmentModal = ({visible, onCancel, doctorId}) => {
                         <Field
                             name={"timeRange"}
                             component={TimeSelector}
+                            startTime={timeSelected[0]}
+                            endTime={timeSelected[1]}
                             onChange={(time, timeString) => {
-                                setTimeSelected(timeString)
-                                console.log(time)
-                                const duration =
-                                console.log(duration)
+                                setTimeSelected(time)
                             }}
                             workTime={doctorId.workTime}
+                            busyStartTime={busyStartTimeDoctor}
+                            busyEndTime={busyEndTimeDoctor}
                         />
                         <label>Additional Notes</label>
                         <Field

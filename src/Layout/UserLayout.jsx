@@ -46,6 +46,7 @@ const MyAccountStyled = styled.div`
   .account-content {
     grid-area: content;
     width: 100%;
+    height: calc(100vh - 205px);
   }
 `
 

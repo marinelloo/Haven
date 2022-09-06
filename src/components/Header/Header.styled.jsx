@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const HeaderStyled = styled.div`
   background-color: #F4FAFF;
-  border-bottom: #fefffc4d solid 1px;
+  box-shadow: 0px 3px 12px 4px rgba(0, 0, 0, 0.04);
   
   .header-wrapper {
     display: flex;
