@@ -48,7 +48,47 @@ export const filterDoctorsListByGender = async (filterValue) => {
         })
 
     } catch (e) {
+        console.log(e)
+    }
+}
 
+export const filterDoctorsListByLanguage = async (filterValue) => {
+    try {
+        return await fakeServerInstance.get('/doctors', {
+            params: {
+                language_like: filterValue
+            }
+        })
+    } catch (e) {
+        console.log(e)
+    }
+}
+
+export const filterDoctorsListBySpec = async (filterValue) => {
+    try {
+        return await fakeServerInstance.get('doctors', {
+            params: {
+                specialisation_like: filterValue
+            }
+        })
+
+    } catch (e) {
+        console.log(e)
+    }
+}
+
+
+export const justFilter = async (genderFilter, languageFilter, specValue) => {
+    try {
+        return await fakeServerInstance.get('doctors', {
+            params: {
+                specialisation_like: specValue,
+                language_like: languageFilter,
+                gender: genderFilter
+            }
+        })
+    } catch (e) {
+        console.log(e)
     }
 }
 

@@ -46,7 +46,7 @@ const MyAccountStyled = styled.div`
   .account-content {
     grid-area: content;
     width: 100%;
-    height: max-content;
+    min-height: 100vh;
   }
 `
 

@@ -16,25 +16,25 @@ export const DoctorsStyled = styled.div`
       grid-area: sidebar;
       height: 100%;
       background-color: #fafafa;
+      padding: 10px;
     }
   
     .sidebar__search {
       margin: 10px;
     }
   
-    .sidebar__gender {
-      padding: 10px;
-    }
-  
-    .sidebar__language {
-      padding: 10px;
       
       .gender-list {
         display: flex;
         flex-direction: column;
         gap: 5px;
       }
-    }
+      
+      .language-list {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
   
     .sidebar-filter {
       height: 100%;
@@ -46,6 +46,7 @@ export const DoctorsStyled = styled.div`
       height: 100vh;
       overflow: auto;
     }
+    
   .list-filter {
     padding-bottom: 20px;
     display: flex;

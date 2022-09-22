@@ -7,23 +7,6 @@ const Filter = (props) => {
     const [selectedFilter, setSelectedFilter] = useState(false);
     const [spec, setSpec] = useState('');
 
-    const genderOption = [
-        {
-            value: "male",
-            name: "Male Therapist"
-        },
-        {
-            value: "female",
-            name: "Female Therapist"
-        }
-    ];
-
-
-    const onChange = (checkedValues) => {
-        console.log('checked = ', checkedValues)
-    }
-
-
     return (
         <FilterStyled>
             <div className="sidebar-filter">

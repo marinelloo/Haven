@@ -2,6 +2,7 @@ import React from 'react';
 import MainLayout from "../../Layout/MainLayout";
 import Banner from "../../components/Banner/Banner";
 import QuestionsList from "../../components/Questions/Questions";
+import FloatingButton from "../../components/ui/FloatingButton";
 
 
 const Home = () => {
@@ -9,7 +10,9 @@ const Home = () => {
     return (
         <MainLayout>
             <Banner/>
-            <QuestionsList/>
+            <FloatingButton>
+                Contact Us
+            </FloatingButton>
         </MainLayout>
     );
 };
