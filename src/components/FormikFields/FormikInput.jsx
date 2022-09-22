@@ -8,13 +8,14 @@ const FormikInput = (props) => {
 
     return(
         <FormikInputStyled>
-            <input type={"text"} {...field} {...props }/>
+            <input {...field} {...props }/>
         </FormikInputStyled>
     )
 }
 
 FormikInput.propTypes = {
     name: PropTypes.string.isRequired,
+    type: PropTypes.string.isRequired,
     placeholder: PropTypes.string
 };
 

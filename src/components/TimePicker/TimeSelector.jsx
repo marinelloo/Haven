@@ -1,62 +1,81 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Radio } from 'antd';
+import {TimeSelectorStyled} from "./TimeSelector.styled";
+import {useParams} from "react-router-dom";
+import {range} from "../../scripts/time";
+import {useEffect} from "react";
+import {fetchDoctorAppointment, fetchDoctorsList} from "../../api/doctorsApi";
 import moment from "moment";
-import {TimePicker} from "antd";
-
-const TimeSelector = ({onChange, workTime, busyStartTime, endTime}) => {
-    const getStartTime = () => {
-        const startTime = workTime.map(value => value.startTime);
-        return Number(moment(startTime, "HH:mm").format('H'));
-    }
-
-    const  getEndTime = () => {
-        const endTime = workTime.map(value => value.endTime);
-        return Number(moment(endTime, "HH:mm").format('H'));
-    }
 
 
-    function range(start, end) {
-        const result = [];
-        for (let i = start; i < end; i++) {
-            result.push(i);
+const options = [
+    {
+        label: 'Apple',
+        value: 'Apple',
+    },
+    {
+        label: 'Pear',
+        value: 'Pear',
+    },
+    {
+        label: 'Orange',
+        value: 'Orange',
+    },
+];
+
+
+const TimeSelector = ({onChange, buttonStyle, optionType}) => {
+    const {id} = useParams();
+    const [busyStartTimeDoctor, setBusyStartTimeDoctor] = useState(null);
+    const [busyEndTimeDoctor, setBusyEndTimeDoctor] = useState(null);
+    const [bookedDoctorTime, setBookedDoctorTime] = useState(null);
+    const [selectedDoctor, setSelectedDoctor] = useState('');
+
+
+    const timeRangeArr = range(busyStartTimeDoctor, busyEndTimeDoctor);
+    let optionsArr = [];
+
+    useEffect(() => {
+        async function fetchDoctor() {
+            const res = await fetchDoctorsList();
+            const resDoctorTime = await fetchDoctorAppointment(id);
+            const doctorId = res.data.find(doctor => doctor.id === id);
+            const doctorStartTime = doctorId.workTime.map(value => value.startTime)
+            const doctorEndTime = doctorId.workTime.map(value => value.endTime);
+            setBookedDoctorTime(resDoctorTime.data)
+            setSelectedDoctor(doctorId);
+            setBusyStartTimeDoctor(Number(moment(doctorStartTime, "HH:mm").format('H')));
+            setBusyEndTimeDoctor(Number(moment(doctorEndTime, "HH:mm").format('H')));
         }
-        return result;
-    }
+        fetchDoctor();
+    }, [id]);
 
+        const items = []
+        for (let hour = busyStartTimeDoctor; hour < busyEndTimeDoctor; hour++) {
+            items.push({
+                label: moment({ hour}).format('h:mm A'),
+                value: moment({ hour}).format('h:mm A'),
+            }
+            )
+            items.push(
+                {
+                    label: moment({ hour, minute: 30 }).format('h:mm A'),
+                    value: moment({ hour, minute: 30 }).format('h:mm A'),
+                }
 
-    function disabledRangeTime(_, type) {
-        const endTime = getEndTime();
-        const startTime = getStartTime();
-        const newArr = range(0, 24).splice(startTime);
-        const endIndex = newArr.indexOf(endTime + 1);
-        newArr.splice(endIndex);
-        const busyStartArr = busyStartTime.map((value) => Number(moment(value, 'HH:mm').format('H')));
-        const disabledWorkHours = [...range(0, 24).filter(value => busyStartArr.includes(value)), ...range(0, 24).filter(value => !newArr.includes(value))]
-
-
-        if (type === 'start') {
-                 const disabledHours = () => {
-                    return disabledWorkHours
-                 }
-                 disabledHours();
-
+            )
         }
-        return {
-            disabledHours: () => disabledWorkHours,
-        }
-
-
-    }
 
 
     return (
-        <TimePicker.RangePicker
-            defaultOpenValue={moment('00:00', 'HH:mm')}
-            format={"HH:mm"}
-            minuteStep={30}
-            onChange={onChange}
-            disabledTime={disabledRangeTime}
-            hideDisabledOptions={false}
-        />
+        <TimeSelectorStyled>
+            <Radio.Group
+                options={items}
+                onChange={onChange}
+                optionType={optionType}
+                buttonStyle={buttonStyle}
+            />
+        </TimeSelectorStyled>
     );
 };
 

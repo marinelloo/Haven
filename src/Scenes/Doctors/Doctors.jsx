@@ -1,25 +1,35 @@
 import React, {useEffect, useMemo, useState} from 'react';
 import Sorting from "../../components/Sorting/Sorting";
 import DoctorList from "../../components/DoctorList/DoctorList";
-import {fetchDoctorsList} from "../../api/doctorsApi";
+import {
+    fetchDoctorsList,
+    filterDoctorsList,
+    filterDoctorsListByGender,
+    searchDoctorsList,
+    sortDoctorList
+} from "../../api/doctorsApi";
 import Pagination from "../../components/Pagination/Pagination";
 import MainLayout from "../../Layout/MainLayout";
 import {DoctorsStyled} from "./Doctors.styled";
 import Search from "../../components/Search/Search";
-import SideBar from "../../components/SideBar/Filter";
+import SideBar from "../../components/Filter/Filter";
 import SideLayout from "../../Layout/SideLayout";
+import Filter from "../../components/Filter/Filter";
+import {Checkbox} from "antd";
 
 
 const Doctors = () => {
     const [selectedSort, setSelectedSort] = useState("");
-    const [selectedSpec, setSelectedSpec] = useState([]);
     const [doctors, setDoctors] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
     const [totalPages, setTotalPages] = useState(0);
     const [limit, setLimit] = useState(10);
     const [page, setPage] = useState(1);
+    const [filterGender, setFilterGender] = useState([]);
+    const [filterLanguage, setFilterLanguage] = useState([]);
 
-
+    const sortingOrderAsc = 'asc';
+    const sortingOrderDesc = 'desc';
 
     const sortingOption = [
         {
@@ -38,39 +48,51 @@ const Doctors = () => {
 
 
     useEffect(() => {
-        async function fetchData() {
-            const res = await fetchDoctorsList(limit, page);
-            setDoctors(res.data);
-            const totalCount = res.headers['x-total-count'];
-            setTotalPages(Math.ceil(totalCount / limit));
-        }
-        fetchData();
-    }, [page]);
-
-
-    const sortedDoctors = useMemo(() => {
-        if (selectedSort){
-            return [...doctors].sort((a, b) => b[selectedSort] - a[selectedSort]);
-        }
-        if (selectedSpec.length) {
-            return [...doctors].filter((doctor) => doctor.lastName === selectedSpec)
+        if (selectedSort !== 'rating') {
+            async function sortDoctors1() {
+                const res = await sortDoctorList(selectedSort, sortingOrderAsc);
+                setDoctors(res.data)
+            }
+            sortDoctors1();
+        } else if (selectedSort === 'rating'){
+            async function sortDoctors1() {
+                const res = await sortDoctorList(selectedSort, sortingOrderDesc);
+                setDoctors(res.data)
+            }
+            sortDoctors1();
         }
         else {
-            return doctors;
+            async function fetchData() {
+                const res = await fetchDoctorsList(limit, page);
+                setDoctors(res.data);
+                const totalCount = res.headers['x-total-count'];
+                setTotalPages(Math.ceil(totalCount / limit));
+            }
+            fetchData();
         }
-    },[selectedSort, doctors, selectedSpec]);
 
-    // const filteredDoctors = useMemo(() => {
-    //     if (selectedSpec) {
-    //         console.log(doctors)
-    //         console.log([...doctors].filter((doctor) => doctor.language == "Swedish"))
-    //         return [...doctors].filter((doctor) => doctor.language === "Swedish")
-    //     }
-    // },[selectedSpec, doctors])
+    }, [page, selectedSort]);
 
-    const sortedAndSearchDoctors = useMemo(() => {
-        return sortedDoctors.filter(doctor => doctor.firstName.toLowerCase().includes(searchQuery))
-    },[searchQuery,sortedDoctors])
+
+    useEffect(() => {
+       async function searchDoctorList() {
+           const res = await searchDoctorsList(searchQuery);
+           setDoctors(res.data)
+       }
+       searchDoctorList();
+    },[searchQuery])
+
+    useEffect(() => {
+        if (filterGender.length) {
+            async function filterByGender() {
+                const res = await filterDoctorsListByGender(filterGender)
+                setDoctors(res.data)
+            }
+            filterByGender();
+        } else {
+            console.log('filter something')
+        }
+    },[filterGender, filterLanguage])
 
     const sortDoctors = (sort) => {
         setSelectedSort(sort);
@@ -80,10 +102,44 @@ const Doctors = () => {
         setPage(page)
     }
 
-    const filterBySpec = (selectedSpec, event) => {
-            setSelectedSpec(selectedSpec);
 
+    const onChangeGender = (checkedValues) => {
+        setFilterGender(checkedValues)
+        console.log('checked = ', checkedValues)
     }
+
+    const onChangeLanguage = (checkedValues) => {
+        setFilterLanguage(checkedValues)
+        console.log('checked language = ', checkedValues)
+    }
+
+    const genderOption = [
+        {
+            label: "Male Therapist",
+            value: "male",
+
+        },
+        {
+            label: "Female Therapist",
+            value: "female",
+
+        }
+    ];
+
+    const languageOption = [
+        {
+            value: "eng",
+            label: "English"
+        },
+        {
+            value: "geu",
+            label: "German"
+        },
+        {
+            value: "ukr",
+            label: "Ukrainian"
+        },
+    ]
 
 
     return (
@@ -91,21 +147,30 @@ const Doctors = () => {
             <DoctorsStyled>
                 <div className="sidebar-wrapper">
                     <div className="sidebar">
-                        <SideBar value={selectedSpec} onChange={filterBySpec}>
-                            <Search value={searchQuery} onChange={event => setSearchQuery(event.target.value)} placeholder="Search"/>
-                        </SideBar>
+                            <div className={"sidebar__search"}>
+                                <Search value={searchQuery} onChange={event => setSearchQuery(event.target.value)} placeholder="Search"/>
+                            </div>
+                            <div className={"sidebar__gender"}>
+                                <h3>Gender</h3>
+                                <Checkbox.Group options={genderOption} onChange={onChangeGender}/>
+                            </div>
+                            <div className={"sidebar__language"}>
+                                <h3>Languages</h3>
+                                <Checkbox.Group options={languageOption} onChange={onChangeLanguage} className={"gender-list"}/>
+                            </div>
                     </div>
                     <div className="sidebar__content">
                         <div className="list-wrapper">
                             <div className="list-filter">
                                 <h3>Contact Therapists around you</h3>
-                                <Sorting value={selectedSort}
+                                <Sorting
+                                        value={selectedSort}
                                          onChange={sortDoctors}
                                          defaultValue="Sort By"
                                          options={sortingOption}/>
                             </div>
                             {
-                                sortedAndSearchDoctors.length ? <DoctorList doctors = {sortedAndSearchDoctors}/> : <h2>Not Found</h2>
+                                <DoctorList doctors = {doctors}/>
                             }
                         </div>
                         <Pagination page={page}  totalPages = {totalPages} changePage={changePage}/>

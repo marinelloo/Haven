@@ -5,6 +5,7 @@ import Doctors from "../Scenes/Doctors/Doctors";
 import React from 'react';
 import DoctorPage from "../Scenes/DoctorPage/DoctorPage";
 import MyAppointments from "../Scenes/MyAppointments/MyAppointments";
+import Booking from "../Scenes/Booking/Booking";
 
 export const RouteNames = {
     LOGIN: '/login',
@@ -12,7 +13,8 @@ export const RouteNames = {
     HOME: '/home',
     DOCTORS: '/doctors',
     DOCTOR_PAGE: '/doctors/:id',
-    MY_APPOINTMENTS:'/my-appointments'
+    MY_APPOINTMENTS:'/my-appointments',
+    BOOKING: '/:id/booking'
 }
 
 export const loggedInRoutes = [
@@ -20,7 +22,8 @@ export const loggedInRoutes = [
     {path: RouteNames.MY_APPOINTMENTS, exact: true, element: <MyAppointments/>},
     {path: RouteNames.HOME, exact: true, element: <Home/>},
     {path: RouteNames.DOCTORS, exact: true, element: <Doctors/>},
-    {path: RouteNames.DOCTOR_PAGE, exact: true, element: <DoctorPage/>}
+    {path: RouteNames.DOCTOR_PAGE, exact: true, element: <DoctorPage/>},
+    {path: RouteNames.BOOKING, exact: true, element: <Booking/>}
 ]
 
 export const loggedOutRoutes = [

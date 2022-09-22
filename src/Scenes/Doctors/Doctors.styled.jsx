@@ -18,6 +18,24 @@ export const DoctorsStyled = styled.div`
       background-color: #fafafa;
     }
   
+    .sidebar__search {
+      margin: 10px;
+    }
+  
+    .sidebar__gender {
+      padding: 10px;
+    }
+  
+    .sidebar__language {
+      padding: 10px;
+      
+      .gender-list {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+    }
+  
     .sidebar-filter {
       height: 100%;
     }

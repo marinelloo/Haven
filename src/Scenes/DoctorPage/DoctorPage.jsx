@@ -7,7 +7,8 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faStar} from "@fortawesome/free-solid-svg-icons";
 import {DoctorPageStyled} from "./DoctorPage.styled";
 import {Button, Space, DatePicker, Modal, TimePicker, Input, Result} from "antd";
-import AppointmentModal from "../../components/AppointmentModal/AppointmentModal";
+import {RouteNames} from "../../constants/routes";
+import Booking from "../Booking/Booking";
 
 
 const arrowRight = <FontAwesomeIcon icon={faStar} />;
@@ -16,7 +17,6 @@ const DoctorPage = () => {
     const {id} = useParams();
     const [doctorPage,setDoctorPage] = useState('');
     const [showCalendar, setShowCalendar] = useState(false);
-
 
     useEffect(() => {
         async function fetchDoctor() {
@@ -45,8 +45,10 @@ const DoctorPage = () => {
                     <div className="doctor__text">
                         <h2>{doctorPage.firstName} {doctorPage.lastName}</h2>
                         <div className="doctor__btns">
-                                <Button onClick={() => setShowCalendar(true)}>Book Appointment</Button>
-                                <AppointmentModal visible={showCalendar} onCancel = {() => setShowCalendar(false)} doctorId={doctorPage}/>
+                            <Link to={`/${id}/booking`} component={<Booking doctorId={id}/>}>
+                                <Button>Book Appointment</Button>
+                            </Link>
+                                {/*<AppointmentModal visible={showCalendar} onCancel = {() => setShowCalendar(false)} doctorId={doctorPage}/>*/}
                         </div>
                         <div className={"doctor__description"}>
                             <p>
