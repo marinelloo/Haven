@@ -120,7 +120,7 @@ const MyAccount = () => {
                     >
                         <div className={"upload-section"}>
                             {/*<Modal open={true} title={previewTitle}>*/}
-                                <Image fallback={NoAvatar} src={initialValues.userAvatar ? initialValues.userAvatar : previewImage} alt={"userAvatar"}  className={"avatar-preview"}/>
+                                <Image fallback={NoAvatar} src={initialValues.userAvatar ? initialValues.userAvatar : NoAvatar} alt={"userAvatar"}  className={"avatar-preview"}/>
                             {/*</Modal>*/}
                             <Upload
                                 method={"patch"}
