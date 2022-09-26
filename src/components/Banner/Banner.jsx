@@ -2,7 +2,7 @@ import React from 'react';
 import {BannerStyled} from "./Banner.styled";
 import Button from "../ui/Button";
 import {Link} from "react-router-dom";
-import Hands from "../../assets/images/Hands.png";
+import Hands from "../../assets/images/hands1.png";
 
 
 const Banner = () => {

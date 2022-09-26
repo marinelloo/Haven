@@ -5,11 +5,12 @@ import {Link, useNavigate} from "react-router-dom";
 import {RouteNames} from "../../constants/routes";
 import {useDispatch, useSelector} from "react-redux";
 import {login, logout, selectUser} from "../../store/features/user/userSlice";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser} from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => {
     const navigate = useNavigate();
-
+    const userIcon = <FontAwesomeIcon icon={faUser} />
 
     const user = useSelector(selectUser)
     return (
@@ -25,14 +26,16 @@ const Header = () => {
                     <Link to={RouteNames.DOCTORS}>
                         <li>Our Therapists</li>
                     </Link>
-                    <li>
-                        Blog
-                    </li>
+                    <Link to={RouteNames.BLOG}>
+                        <li>
+                            Contact Us
+                        </li>
+                    </Link>
                     {
                         user ?
                             <>
                                 <Link to={RouteNames.MY_ACCOUNT}>
-                                    <li>My Account</li>
+                                    <li className={"account-icon"}>{userIcon}</li>
                                 </Link>
                             </>
                             :

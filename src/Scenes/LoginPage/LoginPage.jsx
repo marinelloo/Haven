@@ -19,16 +19,10 @@ const LoginPage = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
+    console.log(accountId)
     let userId;
 
     const handleSubmit = (values) => {
-        dispatch(login({
-            name: values.name,
-            email: values.email,
-            password: values.password,
-            loggedIn: true
-        }))
-        setIsLogin(true);
         axios.post(
             'http://localhost:3004/users',
             {
@@ -37,9 +31,14 @@ const LoginPage = () => {
                 password: values.password,
                 userAppointment: {},
             }).then(response => {
-                dispatch(setId(
-                    response.data.id
-                ))
+                dispatch(login({
+                    name: values.name,
+                    email: values.email,
+                    password: values.password,
+                    loggedIn: true,
+                    userId: response.data.id
+            }))
+            setIsLogin(true);
             }
         )
         setTimeout(() => {

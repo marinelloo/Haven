@@ -5,6 +5,8 @@ import {faStar} from "@fortawesome/free-solid-svg-icons";
 import BlueButton from "../ui/BlueButton";
 import WhiteButton from "../ui/WhiteButton";
 import { Link, useNavigate} from "react-router-dom";
+import Booking from "../../Scenes/Booking/Booking";
+import {Button} from "antd";
 
 
 const arrowRight = <FontAwesomeIcon icon={faStar} />;
@@ -34,8 +36,9 @@ const DoctorCard = (props) => {
                             <Link to={`/doctors/${props.doctor.id}`}>
                                 <WhiteButton>More Info</WhiteButton>
                             </Link>
-                            <WhiteButton>View Rates</WhiteButton>
-                            <BlueButton>Book Appointment</BlueButton>
+                            <Link to={`/${props.doctor.id}/booking`} component={<Booking doctorId={props.doctor.id}/>}>
+                                <BlueButton>Book Appointment</BlueButton>
+                            </Link>
                         </div>
                     </div>
                 </div>

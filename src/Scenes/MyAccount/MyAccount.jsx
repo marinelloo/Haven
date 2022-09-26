@@ -1,98 +1,187 @@
 import React, {useState} from 'react';
 import UserLayout from "../../Layout/UserLayout";
 import {useDispatch, useSelector} from "react-redux";
-import {login, selectUser} from "../../store/features/user/userSlice";
-import { Formik, Form, Field } from 'formik';
+import {login, selectUser, userUpdate} from "../../store/features/user/userSlice";
 import {MyAccountStyled} from "./MyAccount.styled";
-import {SignupSchema} from "../../scripts/validationForm";
 import axios from "axios";
-import {RouteNames} from "../../constants/routes";
 import {useNavigate} from "react-router-dom";
-import {uploadImage} from "../../api/uploadImage";
+import 'antd/dist/antd.css';
+import { PlusOutlined } from '@ant-design/icons';
+import {Button, Input, InputNumber, Form, Modal, Upload, Image} from "antd";
+import NoAvatar from '../../assets/images/NoAvatar.jpeg'
+
+
+const getBase64 = (file) =>
+    new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+
+        reader.onload = () => resolve(reader.result);
+
+        reader.onerror = (error) => reject(error);
+    });
 
 const MyAccount = () => {
     const user = useSelector(selectUser);
-    const [selectedImage, setSelectedImage] = useState(null);
+    const userId = user.userId;
+    const [currentUser, setCurrentUser] = useState({})
+    const [selectedImage, setSelectedImage] = useState([]);
+    const [previewOpen, setPreviewOpen] = useState(true);
+    const [previewTitle, setPreviewTitle] = useState('');
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
 
     const initialValues = {
-        name: user.user.name,
-        email: user.user.email,
-        lastName: user.user.lastName,
-        password: user.user.password
+        name: user.name,
+        email: user.email,
+        lastName: user.lastName,
+        password: user.password,
+        userAvatar: user.userAvatar
     }
+
+    const [previewImage, setPreviewImage] = useState(initialValues.userAvatar);
+
+
+    const layout = {
+        labelCol: {
+            span: 2,
+        },
+        wrapperCol: {
+            span: 18,
+        },
+    };
+
+    const validateMessages = {
+        required: '${label} is required!',
+        types: {
+            email: '${label} is not a valid email!',
+            number: '${label} is not a valid number!',
+        },
+        number: {
+            range: '${label} must be between ${min} and ${max}',
+        },
+    };
+    const handlePreview = async (file) => {
+        if (!file.url && !file.preview) {
+            file.preview = await getBase64(file.originFileObj);
+        }
+        setPreviewImage(file.url || file.preview);
+        setPreviewOpen(true);
+        setPreviewTitle(file.name || file.url.substring(file.url.lastIndexOf('/') + 1));
+    };
+
+    const uploadButton = (
+        <div>
+            <Button>
+                Upload Avatar
+            </Button>
+            {/*<div*/}
+            {/*    style={{*/}
+            {/*        marginTop: 8,*/}
+            {/*    }}*/}
+            {/*>*/}
+            {/*    */}
+            {/*</div>*/}
+        </div>
+    );
 
 
     const handleSubmit = (values) => {
-        dispatch(login({
+        dispatch(userUpdate({
             name: values.name,
             lastName: values.lastName,
             email: values.email,
             password: values.password,
+            userAvatar: previewImage,
+            userId: userId,
             loggedIn: true
         }))
-        axios.post(
-            'http://localhost:3004/users',
+        axios.patch(
+            `http://localhost:3004/users/${userId}`,
             {
                 name: values.name,
                 email: values.email,
                 password: values.password,
                 lastName: values.lastName,
+                userAvatar: previewImage,
                 userAppointment: {},
             })
-        setTimeout(() => {
-            navigate(RouteNames.HOME)
-        }, 1000)
     }
-
 
     return (
         <UserLayout>
             <MyAccountStyled>
-            <div>Welcome, {initialValues.name}</div>
-                <Formik
-                    initialValues={initialValues}
-                    onSubmit={handleSubmit}
-                    validationSchema={SignupSchema}
-                >
-                    <Form className={"account-form"}>
-                        <div>
-                            <h3>Upload and Display Image usign React Hook's</h3>
-                            {selectedImage && (
-                                <div className={"photo-image"}>
-                                    <img alt="not found" width={"250px"} src={URL.createObjectURL(selectedImage)} />
-                                </div>
-                            )}
-                            <input
-                                type="file"
-                                name="myImage"
-                                accept={"image/*"}
-                                onChange={(event) => {
-                                    setSelectedImage(event.target.files[0]);
-                                }}
-                            />
+                <h4>Personal Information</h4>
+                <hr className={"divider"}/>
+                <Form className={"account-form"} {...layout} name="nest-messages" onFinish={handleSubmit} initialValues={initialValues} validateMessages={validateMessages}>
+                    <Form.Item
+                        name={"userAvatar"}
+                    >
+                        <div className={"upload-section"}>
+                            {/*<Modal open={true} title={previewTitle}>*/}
+                                <Image fallback={NoAvatar} src={initialValues.userAvatar ? initialValues.userAvatar : previewImage} alt={"userAvatar"}  className={"avatar-preview"}/>
+                            {/*</Modal>*/}
+                            <Upload
+                                method={"patch"}
+                                maxCount={1}
+                                action={`http://localhost:3004/users/${user.userId}`}
+                                className={"avatar-upload"}
+                                onPreview={handlePreview}
+                                showUploadList={{showPreviewIcon: false, showRemoveIcon: false}}
+                                accept="image/*"
+                            >
+                                <Button>Click to Upload</Button>
+                                {/*{previewImage >= 1 ? null : uploadButton}*/}
+                            </Upload>
                         </div>
-                        <label htmlFor="firstName">First Name</label>
-                        <Field  name="name" placeholder="Name" />
-
-                        <label htmlFor="lastName">Last Name</label>
-                        <Field name="lastName" placeholder="Last Name"/>
-
-                        <label htmlFor="lastName">Last Name</label>
-                        <Field id="password" name="password" type="password" placeholder="Enter Password"/>
-
-                        <label htmlFor="email">Email</label>
-                        <Field
-                            id="email"
-                            name="email"
-                            placeholder="jane@acme.com"
-                            type="email"
-                        />
-                        <button type="submit">Submit</button>
-                    </Form>
-                </Formik>
+                    </Form.Item>
+                    <Form.Item
+                        name={"name"}
+                        label="Name"
+                        rules={[
+                            {
+                                required: true,
+                            },
+                        ]}
+                    >
+                        <Input />
+                    </Form.Item>
+                    <Form.Item
+                        name={"lastName"}
+                        label="Last Name"
+                    >
+                        <Input />
+                    </Form.Item>
+                    <Form.Item
+                        name={"password"}
+                        label="Password"
+                        rules={[
+                            {
+                                required: true,
+                            },
+                        ]}
+                    >
+                        <Input.Password />
+                    </Form.Item>
+                    <Form.Item
+                        name={"email"}
+                        label="Email"
+                        rules={[
+                            {
+                                type: 'email',
+                                required: true
+                            },
+                        ]}
+                    >
+                        <Input />
+                    </Form.Item>
+                    <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
+                        <Button type="primary" htmlType="submit">
+                            Edit Profile
+                        </Button>
+                    </Form.Item>
+                </Form>
             </MyAccountStyled>
         </UserLayout>
     );

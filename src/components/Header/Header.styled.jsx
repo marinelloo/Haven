@@ -7,7 +7,7 @@ export const HeaderStyled = styled.div`
   .header-wrapper {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     padding: 12px 0 12px 50px;
     gap: 100px;
   }
@@ -15,12 +15,16 @@ export const HeaderStyled = styled.div`
   .header__logo {
     margin: 0;
   }
+
+  .account-icon {
+    font-size: 28px;
+  }
   
   ul {
     display: flex;
     gap: 30px;
     margin: 0;
-    padding: 0;
+    padding: 0 20px 0 0;
     overflow: hidden;
     align-items: center;
   }
