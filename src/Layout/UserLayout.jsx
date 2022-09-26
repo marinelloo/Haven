@@ -5,6 +5,7 @@ import userBackground from "../assets/images/user_background.png";
 import UserNavigation from "../components/UserNavigation/UserNavigation";
 
 const MyAccountStyled = styled.div`
+  background-color: #f5f6f8;
   li:hover {
     background: #fefffc4d;
     padding: 0;
@@ -32,8 +33,11 @@ const MyAccountStyled = styled.div`
   .account-sidebar {
     padding: 30px;
     grid-area: sidebar;
-    background-color: #F4FAFF;
+    background-color: #FFFFFF;
     font-size: 18px;
+    height: 350px;
+    margin: 20px;
+    width: 300px;
     
     h3 {
       color: #483E58;
@@ -47,6 +51,7 @@ const MyAccountStyled = styled.div`
     grid-area: content;
     width: 100%;
     min-height: 100vh;
+    padding: 20px;
   }
 `
 

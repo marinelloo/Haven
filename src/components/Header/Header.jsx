@@ -28,7 +28,7 @@ const Header = () => {
                     </Link>
                     <Link to={RouteNames.BLOG}>
                         <li>
-                            Blog
+                            Contact Us
                         </li>
                     </Link>
                     {

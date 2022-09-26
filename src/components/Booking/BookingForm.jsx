@@ -1,79 +1,76 @@
 import React, {useEffect, useState} from 'react';
 import {
     Button,
-    Col,
+    Col, DatePicker,
     Form,
     Input,
     Select,
 } from 'antd';
 import TextArea from "antd/es/input/TextArea";
-import DateSelect from "../DatePicker/DateSelect";
-import TimeSelector from "../TimePicker/TimeSelector";
 import axios from "axios";
 import {useNavigate, useParams} from "react-router-dom";
 import {fetchDoctorAppointment, fetchDoctorsList} from "../../api/doctorsApi";
 import {RouteNames} from "../../constants/routes";
 import moment from "moment";
 
+
 const { Option } = Select;
-
-const formItemLayout = {
-    labelCol: {
-        xs: {
-            span: 24,
-        },
-        sm: {
-            span: 8,
-        },
-    },
-    wrapperCol: {
-        xs: {
-            span: 24,
-        },
-        sm: {
-            span: 16,
-        },
-    },
-};
-const tailFormItemLayout = {
-    wrapperCol: {
-        xs: {
-            span: 24,
-            offset: 0,
-        },
-        sm: {
-            span: 16,
-            offset: 8,
-        },
-    },
-};
-
-
-
 
 const BookingForm = ({user, options}) => {
     const [form] = Form.useForm();
     const {id} = useParams();
+    let blockDate = ['2022-09-13', '2020-10-28'];
+    let currentDate = moment().format('YYYY-MM-DD');
     const navigate = useNavigate();
     const [selectedDoctor, setSelectedDoctor] = useState('');
+    const [formLayout, setFormLayout] = useState('vertical');
+    const [dateSelected, setDateSelected] = useState('');
+    const [timeSelected, setTimeSelected] = useState([]);
+    const [busyStartTimeDoctor, setBusyStartTimeDoctor] =useState([]);
+    const [busyEndTimeDoctor, setBusyEndTimeDoctor] =useState([]);
+    const [workTimeDoctor, setWorkTimeDoctor] = useState([]);
+
+
+    const buttonItemLayout =
+        formLayout === 'horizontal'
+            ? {
+                wrapperCol: { span: 14, offset: 4 },
+            }
+            : null;
+
+    const formItemLayout =
+        formLayout === 'horizontal'
+            ? {
+                labelCol: {
+                    span: 4,
+                },
+                wrapperCol: {
+                    span: 14,
+                },
+            }
+            : null;
 
     useEffect(() => {
         async function fetchDoctor() {
             const res = await fetchDoctorsList();
+            const time = await fetchDoctorAppointment(id)
             const doctorId = res.data.find(doctor => doctor.id === id);
+            const doctorStartTime = time.data.map(value => value.startTime);
+            const doctorEndTime = time.data.map(value => value.endTime);
+            setWorkTimeDoctor(doctorId.workTime);
             setSelectedDoctor(doctorId);
+            setBusyStartTimeDoctor(doctorStartTime);
+            setBusyEndTimeDoctor(doctorEndTime);
         }
         fetchDoctor();
     }, [id]);
-
 
 
     const onFinish = (values) => {
         axios.post(
             `http://localhost:3004/appointments/`,
             {
-                date: moment(values.date).format('MM/DD/YYYY'),
-                time: values.time,
+                date: moment(dateSelected).format('MM/DD/YYYY HH:mm'),
                 notes: values.notes,
                 userId: user.userId,
                 doctorName: selectedDoctor.firstName,
@@ -103,18 +100,63 @@ const BookingForm = ({user, options}) => {
     };
 
     const [autoCompleteResult, setAutoCompleteResult] = useState([]);
+    const [selectedDate, setSelectedDate] = useState()
+
+    const getStartTime = () => {
+        const startTime = workTimeDoctor.map(value => value.startTime);
+        return Number(moment(startTime, "HH:mm").format('H'));
+    }
+
+    const  getEndTime = () => {
+        const endTime = workTimeDoctor.map(value => value.endTime);
+        return Number(moment(endTime, "HH:mm").format('H'));
+    }
 
 
+    function range(start, end) {
+        const result = [];
+        for (let i = start; i < end; i++) {
+            result.push(i);
+        }
+        return result;
+    }
+
+
+    function disabledRangeTime(_, type) {
+        const endTime = getEndTime();
+        const startTime = getStartTime();
+        const newArr = range(0, 24).splice(startTime);
+        const endIndex = newArr.indexOf(endTime + 1);
+        newArr.splice(endIndex);
+        const busyStartArr = busyStartTimeDoctor.map((value) => Number(moment(value, 'HH:mm').format('H')));
+        const disabledWorkHours = [...range(0, 24).filter(value => busyStartArr.includes(value)), ...range(0, 24).filter(value => !newArr.includes(value))]
+
+
+        if (type === 'start') {
+            const disabledHours = () => {
+                return disabledWorkHours
+            }
+            disabledHours();
+
+        }
+        return {
+            disabledHours: () => disabledWorkHours,
+        }
+
+
+    }
 
     return (
         <Form
-            {...formItemLayout}
             form={form}
-            name="register"
+            {...formItemLayout}
+            layout={"vertical"}
+            name="booking"
             onFinish={onFinish}
             initialValues={{
-                name: user.user.name,
-                email: user.user.email,
+                layout: formLayout,
+                name: user.name,
+                email: user.email,
                 date: '',
                 time: timeAppointment,
                 notes: ''
@@ -151,7 +193,7 @@ const BookingForm = ({user, options}) => {
             </Form.Item>
             <Form.Item
                 name="date"
-                label={"Date"}
+                label="Date"
                 rules={[
                     {
                         required: true,
@@ -159,23 +201,16 @@ const BookingForm = ({user, options}) => {
                     },
                 ]}
             >
-                <DateSelect/>
-            </Form.Item>
-            <Form.Item
-                name={"time"}
-                label={"Appointment Time"}
-                rules={[
-                    {
-                        required: true,
-                        message: 'Please select time of appointment',
-                    },
-                ]}
-            >
-                <TimeSelector
-                    user={user}
-                    onChange={onChangeTime}
-                    optionType="button"
-                    buttonStyle="solid"
+                <DatePicker
+                    showTime={"true"}
+                    format={"DD-MM-YYYY HH:mm"}
+                    minuteStep={30}
+                    onSelect={(value) => setDateSelected(value)}
+                    disabledTime={disabledRangeTime}
+                    disabledDate={d => !d
+                        || d.isBefore(currentDate)
+                        || currentDate < moment().endOf('day')
+                        || blockDate.findIndex(date=>date===moment(d).format('YYYY-MM-DD')) !== -1}
                 />
             </Form.Item>
             <Form.Item
@@ -193,8 +228,11 @@ const BookingForm = ({user, options}) => {
                     maxRows: 5,
                 }}/>
             </Form.Item>
-            <Form.Item {...tailFormItemLayout}>
-                <Button type="primary" htmlType="submit">
+            <Form.Item {...buttonItemLayout}>
+                <Button danger onClick={() => navigate(-1)}>Cancel</Button>
+                <Button type="primary" htmlType="submit" style={{
+                    margin: '0 8px',
+                }}>
                     Submit
                 </Button>
             </Form.Item>

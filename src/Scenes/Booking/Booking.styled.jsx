@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const BookingStyled = styled.div`
   height: 100vh;
+  width: 80%;
   padding: 20px;
   .site-calendar-demo-card {
     width: 300px;

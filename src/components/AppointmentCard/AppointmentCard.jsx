@@ -26,7 +26,7 @@ const AppointmentCard = ({appointments}) => {
                    </div>
                    <div className={"appointment-card__user"}>
                        <h6 className={"appointment-date"}>
-                           {moment(`${appointment.date}`).format('LL')} {appointment.time}
+                           {moment(`${appointment.date}`).format('LL HH:mm')}
                        </h6>
                        <div>
                            <h6>Notes for Appointment</h6>

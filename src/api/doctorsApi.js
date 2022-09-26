@@ -1,6 +1,6 @@
 import fakeServerInstance from "./instance";
 
-export const fetchDoctorsList = async (limit = 10,page = 1) => {
+export const fetchDoctorsList = async (limit = 20,page = 1) => {
     try {
         return await fakeServerInstance.get("/doctors", {
             params: {

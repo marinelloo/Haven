@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const AppointmentCardStyled = styled.div`
-  margin: 10px;
   
   p {
     font-size: 16px;
@@ -9,6 +8,7 @@ export const AppointmentCardStyled = styled.div`
   }
   
   .appointment-card {
+    background-color: white;
     padding: 10px;
     display: flex;
     justify-content: space-between;
@@ -23,6 +23,10 @@ export const AppointmentCardStyled = styled.div`
   .appointment-card__doctor {
     display: flex;
     gap: 10px;
+  }
+  
+  .appointment-card__user {
+    max-width: 350px;
   }
   
   .doctor-info {
