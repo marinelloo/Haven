@@ -1,12 +1,10 @@
 import React, {useState,useEffect} from 'react';
 import MainLayout from "../../Layout/MainLayout";
 import {generatePath, Link, useHistory, useNavigate, useParams} from "react-router-dom";
-
 import {fetchDoctorsList} from "../../api/doctorsApi";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faStar} from "@fortawesome/free-solid-svg-icons";
 import {DoctorPageStyled} from "./DoctorPage.styled";
-import {Button, Space, DatePicker, Modal, TimePicker, Input, Result} from "antd";
 import Booking from "../Booking/Booking";
 import BlueButton from "../../components/ui/BlueButton";
 
@@ -15,7 +13,6 @@ const arrowRight = <FontAwesomeIcon icon={faStar} />;
 
 const DoctorPage = () => {
     const {id} = useParams();
-    console.log(id)
     const [doctorPage,setDoctorPage] = useState('');
     const [showCalendar, setShowCalendar] = useState(false);
 
@@ -50,7 +47,6 @@ const DoctorPage = () => {
                             <Link to={`/${id}/booking`} component={<Booking doctorId={id}/>}>
                                 <BlueButton>Book Appointment</BlueButton>
                             </Link>
-                                {/*<AppointmentModal visible={showCalendar} onCancel = {() => setShowCalendar(false)} doctorId={doctorPage}/>*/}
                         </div>
                         <div className={"doctor__description"}>
                             <p>

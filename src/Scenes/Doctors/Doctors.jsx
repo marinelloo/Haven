@@ -7,7 +7,6 @@ import {
     searchDoctorsList,
     sortDoctorList
 } from "../../api/doctorsApi";
-import Pagination from "../../components/Pagination/Pagination";
 import {DoctorsStyled} from "./Doctors.styled";
 import SideLayout from "../../Layout/SideLayout";
 import {Checkbox, Collapse, Input} from "antd";
@@ -219,7 +218,6 @@ const Doctors = () => {
                                 doctors.length ? <DoctorList doctors = {doctors}/> : <NoSearchResults/>
                             }
                         </div>
-                        <Pagination page={page}  totalPages = {totalPages} changePage={changePage}/>
                     </div>
                 </div>
             </DoctorsStyled>
